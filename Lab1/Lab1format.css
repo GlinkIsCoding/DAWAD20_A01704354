@@ -1,0 +1,23 @@
+html{
+    background-color: azure;
+}
+
+h1{
+    background-color: oldlace; color: black; text-align: center;
+}
+
+h2{
+    background-color: cadetblue; color: white; text-align: end
+}
+
+h3{
+    color: coral; text-align: center;
+}
+
+p{
+    background-color: black; color: white;
+}
+
+table{
+    background-color:whitesmoke;
+}

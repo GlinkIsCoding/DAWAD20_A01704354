@@ -1,0 +1,39 @@
+Preguntas y respuestas Lab 1
+¿Cuál es la diferencia entre Internet y la World Wide Web?
+Internet es una enorme red de dispositivos y computadoras conectadas entre sí; la World Wide Web es la colección de páginas que se almacena en esa red.
+
+¿Cuál es el propósito de los métodos HTTP: GET, HEAD, POST, PUT, PATCH, DELETE?
+GET: Pedir un recurso en un servidor web (conteniendo metadatos y el mismo recurso)
+HEAD: Pedir los encabezados o metadatos de un recurso y no el recurso como tal.
+POST: Enviar información y recursos al servidor para que se almacene en un elemento del mismo. Se usa comúnmente en los formularios.
+PUT: Crea un nuevo recurso en el servidor web; o en caso de que ya exista, lo reemplaza.
+PATCH: Aplicar modificaciones parciales a un recurso.
+DELETE: Solicitar al servidor que borre un determinado elemento.
+
+¿Qué método HTTP se debe utilizar al enviar un formulario HTML, por ejemplo cuando ingresas tu usuario y contraseña en algún sitio? ¿Por qué?
+El método POST. Porque un request de POST se suele enviar por un formulario HTML y resulta en cambios en el servidor, es el método adecuado para el tipo de información, pero viaja de manera libre.
+
+¿Qué método HTTP se utiliza cuando a través de un navegador web se accede a una página a través de un URL?
+El método GET.
+
+Un servidor web devuelve una respuesta HTTP con código 200. ¿Qué significa esto? ¿Ocurrió algún error?
+Significa que la petición fue recibida correctamente y puede ser entendida y aceptada por el servidor. No ocurrió ningún error, es un código de respuesta OK.
+
+¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?
+Puede que sea responsabilidad del desarrollador o del usuario. El error 404 indica que se trata de un enlace roto, defectuoso o que ya no existe. Pudo haber sido que el usuario ingresara una dirección incorrecta, que el desarrollador lo haya configurado así a propósito por seguridad o que efectivamente haya cometido un error.
+
+¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?
+
+¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.
+
+¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
+
+¿Qué componentes de estructura y estilo tiene una tabla?
+
+¿Cuáles son los principales controles de una forma HTML5?
+
+¿Qué tanto soporte HTML5 tiene el navegador que utilizas? Puedes utilizar la siguiente página para descubrirlo: http://html5test.com/ (Al responder la pregunta recuerda poner el navegador que utilizas)
+
+Sobre el ciclo de vida y desarrollo de los sistemas de información:
+¿Cuál es el ciclo de vida de los sistemas de información?
+¿Cuál es el ciclo de desarrollo de sistemas de información?
