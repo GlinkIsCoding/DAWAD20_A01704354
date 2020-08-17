@@ -23,12 +23,22 @@ Significa que la petición fue recibida correctamente y puede ser entendida y ac
 Puede que sea responsabilidad del desarrollador o del usuario. El error 404 indica que se trata de un enlace roto, defectuoso o que ya no existe. Pudo haber sido que el usuario ingresara una dirección incorrecta, que el desarrollador lo haya configurado así a propósito por seguridad o que efectivamente haya cometido un error.
 
 ¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?
+Es muy probable que sí. Es un error interno en el servidor del sitio web. Puede tratarse de algún error de permisos incorrecto en un script PHP, o un deficiente manejo de errores en la secuencia de comandos.
 
 ¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)? Menciona algunos elementos de HTML 4 que en HTML5 estén desaprobados.
+Significa que todavía se provee soporte para el atributo, pero pronto ya no lo tendrá, por lo que no es recomendable usarlo.
+
+Algunos elementos que ahora tienen mejor manejo en HTML5 con CSS son:
+applet: Definía un applet
+center: Definía texto centrado
+frame: Definía un marco
+noframes: Definía una sección sin marcos
 
 ¿Cuáles son las diferencias principales entre HTML 4 y HTML5?
+Que HTML 4 no hace distinciones de estilo, pues no se apega a un diseño de ingeniería de software por capas. Además, se percibe HTML5 como un conjunto de tecnologías que incluye JavaScript, CSS y HTML en sí.
 
 ¿Qué componentes de estructura y estilo tiene una tabla?
+
 
 ¿Cuáles son los principales controles de una forma HTML5?
 

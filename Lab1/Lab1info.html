@@ -1,76 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>On HTML and web knowledge</title>
+        <meta charset="UTF-8">
+        <title>Sobre Internet y HTML</title>
         <link href="Lab1format.css" rel="stylesheet">
     </head>
     <body>
-        <h1>This is the info page!</h1>
-        <h2>Get to know this band's style change each time they launch a new album!</h2>
+        <h1>Internet, HTML y más</h1>
+        <h2>Un poco de información que será de mucha ayuda este semestre.</h2>
         <header><h3>Browse around the page or click the links below</h3></header>
         <nav>
             <ul>
-                <li><a href=#MHIAA>My Head Is an Animal</a></li>
-                <li><a href=#BTS>Beneath The Skin</a></li>
-                <li><a href=#FD>FEVER DREAM</a></li>
+                <li><a href=#IHTTP>Internet, HTTP y sus métodos</a></li>
+                <li><a href=#ERRORES>Errores y recomendaciones</a></li>
+                <li><a href=#HTMLSI>HTML5 y los Sistemas de Información</a></li>
             </ul>
         </nav>
         <br><br>
-        <section><a id = "MHIAA"><h3>My Head Is an Animal</h3></a>
-            <article><p>This album introduced everyone to the unique and fantastic world OMAM (Of Monsters and Men) created, drawing influence from their Icelandic origins, being notorious for their sweet folk sound and mountain-indie upbeat hymns.</p></article>
+        <section><a id = "IHTTP"><h3>Internet, HTTP y sus métodos</h3></a>
+            <p>Hay que saber diferenciar que una cosa es el Internet y otra la World Wide Web. El primero es una enorme red de dispositivos y computadoras conectadas entre sí; la segunda es una colección de páginas que se almacena en esa red.</p>
+            <p>Un "Uniform Resource Locator" o URL, es una serie de caracteres que responden a un formato estándar para localizar recursos en Internet. Son identificadores únicos.</p>
+            <p>Los MIME Types o "Multipurpose Internet Mail Extensions" son la manera estándar de mandar contenido a través de la red. Especifican tipos de datos como texto, audio, etc. que los archivos contienen. Permiten incluir archivos de imágenes y sonido en un documento HTML.</p>
+            <p>El protocolo más representativo es HTTP, el cual usa distintos métodos, como los enlistados a continuación:</p>
+                <ul>
+                    <li><strong>GET:</strong> Pedir un recurso en un servidor web (conteniendo metadatos y el mismo recurso)</li>
+                    <li><strong>HEAD:</strong> Pedir los encabezados o metadatos de un recurso y no el recurso como tal.</li>
+                    <li><strong>POST:</strong> Enviar información y recursos al servidor para que se almacene en un elemento del mismo. Se usa comúnmente en los formularios.</li>
+                    <li><strong>PUT:</strong> Crea un nuevo recurso en el servidor web; o en caso de que ya exista, lo reemplaza.</li>
+                    <li><strong>PATCH:</strong> Aplicar modificaciones parciales a un recurso.</li>
+                    <li><strong>DELETE:</strong> Solicitar al servidor que borre un determinado elemento.</li>
+
+                </ul>
+                <p>El método POST debe usarse al enviar un formulario HTML porque un request de POST se suele enviar por un formulario HTML y resulta en cambios en el servidor, es el método adecuado para el tipo de información, pues se envían ocultos en la petición.</p>
+                <p>El método GET es aquel que se utiliza cuando a través de un navegador Web se accede a una página con un URL.</p>
             
-            <article>
-                <table>
-                    <tr>
-                        <td>Little Talks: this song was the band's first major hit and what they're mostly known for. The video follows the story of a flying ship crew that encounters an other-worldly girl apparently looking for home. She joins their journey and protects them from the gigantic beasts that surround those mysterious lands.</td>
-                        <td><img src ="images/littletalks.png" width="400 px"></td>
-                    </tr>
-                    <tr>
-                        <td><img src = "images/kingandlionheart.png"/ width = "400 px"></td>
-                        <td>King and Lionheart: the female lead singer of the band, Nanna Bryndis Hilmarsdottir, wrote this song in a way of putting into music her life experience of the moment her father and mother separated, and how his younger brother went to move far away with his father. The video is a mirroring of that, presenting to siblings being captured in war and managing to escape through this nordic-inspired, weird, and fantastic world.</td>
-                    </tr>
-                </table>
-            </article>
+            
+            
         </section>
         <hr>
         <br>
-        <section><a id = "BTS"><h3>Beneath The Skin</h3></a>
-            <article><p>As many fans quickly noticed, the first album revolved around the 'monsters' theme, and fantastic worlds. But the band's name still was to talk about 'men'. Beneath The Skin is the band's come-back with a darker aura, approaching much more into human insecurities, feelings, and thoughts; what lies beneath the skin.</p></article>
+        <section><a id = "ERRORES"><h3>Errores y recomendaciones</h3></a>
+            <p>Algunas preguntas frecuentes que te encontrarás al trabajar con HTML:</p>
             
-            <article>
+            
                 <table>
                     <tr>
-                        <td>Crystals: this song is the lead single of the band's sophomore album. In the music video we see the band themselves in an infinite-laboratory setting, adding magic and science to give life to something. Mystery and abstract lyrics are still present in every song, and the way they are put in the energetic Crystals is without doubt, remarkable. This era is also distinctive because of the beautiful lyric videos that accompanied every song. A raw emotion is put into it by a different person the whole song each video.</td>
-                        <td><img src ="images/crystals.png" width="400 px"></td>
+                        <td><strong>Un servidor web me devolvió una respuesta HTTP con código 200. ¿Qué significa esto? ¿Hice algo mal?</strong><br>
+                        Significa que la petición fue recibida correctamente y puede ser entendida y aceptada por el servidor. No ocurrió ningún error, es un código de respuesta OK.</td>
+                        <td><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 404? ¿Por qué?</strong><br>
+                        Puede que sea responsabilidad del desarrollador o del usuario. El error 404 indica que se trata de un enlace roto, defectuoso o que ya no existe. Pudo haber sido que el usuario ingresara una dirección incorrecta, que el desarrollador lo haya configurado así a propósito por seguridad o que efectivamente haya cometido un error.</td>
                     </tr>
                     <tr>
-                        <td><img src = "images/wolveswithoutteeth.png"/ width = "400 px"></td>
-                        <td>Wolves Without Teeth: although this song doesn't roam far away from the band's usual sound, the official music video stands out among the others because it is fantastical in a whole different way. In a real way. The video follows the practices and competition of a dance couple. Throughout the video the contrast between the world and this couple is felt and seen. We're able to look at the synergy and the loving way they complement each other, which is what the song is about.</td>
+                        <td><strong>¿Es responsabilidad del desarrollador corregir un sitio web si un usuario reporta que intentó acceder al sitio y se encontró con un error 500? ¿Por qué?</strong><br>
+                        Es muy probable que sí. Es un error interno en el servidor del sitio web. Puede tratarse de algún error de permisos incorrecto en un script PHP, o un deficiente manejo de errores en la secuencia de comandos.</td>
+                        <td><strong>¿Qué significa que un atributo HTML5 esté depreciado o desaprobado (deprecated)?</strong><br>
+                        Significa que todavía se provee soporte para el atributo, pero pronto ya no lo tendrá, por lo que no es recomendable usarlo.</td>
                     </tr>
                 </table>
-            </article>
+                <p>Algunos elementos que ahora tienen mejor manejo en HTML5 con CSS, y que están desaprobados son:</p>
+                <ul>
+                    <li>applet: Definía un applet</li>
+                    <li>center: Definía texto centrado</li>
+                    <li>frame: Definía un marco</li>
+                    <li>noframes: Definía una sección sin marcos</li>
+                </ul>
+            
         </section>
         <hr>
         <br>
-        <section><a id = "FD"><h3>FEVER DREAM</h3></a>
-            <article><p>FEVER DREAM, just released on July of this year, sees the band change the rules of their own game. Moving away from the folky, indie sound they are known for, they seek to expand their own limits by joining forces with synths and a fresh alternative sound. While keeping the abstract lyrics and astonishing melodies, it is Of Monsters and Men in a world of color, clouds, and infinite skies.</p></article>
+        <section><a id = "HTMLSI"><h3>HTML y los Sistemas de Información</h3></a>
+           
+                <p>Las diferencias principales entre HTML 4 y HTML 5 son que HTML 4 no hace distinciones de estilo, pues no se apega a un diseño de ingeniería de software por capas. Además, se percibe HTML5 como un conjunto de tecnologías que incluye JavaScript, CSS y HTML en sí.
+                </p>
+                <p>Los principales componentes de estructura y estilo de una tabla son los siguientes:</p>
+                <ul>
+                    <li>table: define una tabla</li>
+                    <li>th: la cabecera de la tabla</li>
+                    <li>tr: define una fila en la tabla</li>
+                    <li>td: define celdas en la tabla</li>
+                    <li>caption: define el nombre o título de la tabla</li>
+                    <li>colgroup: esencial para un grupo de columnas con un formato específico</li>
+                    <li>col: especifica características de las columnas de un colgroup element</li>
+                    <li>tfoot: define el pie de la tabla</li>
+                </ul>
+                <p>Aunque en versiones anteriores se podían aplicar varios atributos a la etiqueta table, hoy solo se permite el atributo border, con valores de 0 o 1.</p>
+                <p>Los principales elementos y etiquetas de una forma HTML5 son los siguientes:</p>
+                <ol>
+                    <li>form: etiqueta que define un formulario.</li>
+                    <li>method: control sobre cómo se envían los datos recogidos, mediante programación con PHP, ASP, JavaScript, etc.</li>
+                    <li>input type = text: los inputs son campos que debe rellenar el usuario. Definen el tipo de campo y aquí se refiere a crear un campo tipo de texto.</li>
+                    <li>input type= submit: campo de envío y el diseño suele ser un botón.</li>
+                </ol>
+                
+                <p>El navegador que utilizo tiene 473 de 555 en cuanto a soporte de HTML5. El navegador es Chrome Dev 84.0.4147 en macOS Catalina 10.15</p><br>
+                <p>Ciclo de vida de los sistemas de información:</p>
+                <ol>
+                    <li>Planificación: se definen requerimientos y funcionalidades, en conjunto entre desarrolladores y contacto con el cliente.</li>
+                    <li>Definición de requerimientos: Documentar los requisitos específicos del software a desarrollar. Se hacen diversos bocetos que se prueban antes de empezar a programar.</li>
+                    <li>Diseño: Selección de la arquitectura más adecuada para el desarrollo del proyecto.</li>
+                    <li>Implementación: El desarrollo propio del producto después de las pruebas aplicadas a clientes con los bocetos del programa.</li>
+                    <li>Prueba: desempeño del programa para verificar existencia de fallas o posibilidad de mejora.</li>
+                    <li>Despliegue: lanzamiento del producto al mercado.</li>
+                    <li>Mantenimiento: eventualmente se le puede realizar mantenimiento al producto.</li>
+                </ol>
+                <p>Ciclo de desarrollo de los sistemas de información:</p>
+                <ol>
+                    <li>Planificación de proyectos: permite saber qué se debe hacer y quién lo hará. Evidencia obstáculos relevantes del proyecto.</li>
+                    <li>Control de Proyectos: permite preparar y seguir planes de acción.</li>
+                    <li>Estudio de Factibilidad: determina si se puede ofrecer solución automatizada al problema con beneficios tangibles e intangibles. Toma en cuenta costos de la construcción.</li>
+                    <li>Análisis: define qué va a hacer el nuevo sistema. Identifica usuarios y se lleva a cabo análisis de requisitos.</li>
+                    <li>Diseño: define cómo solucionará el sistema los requerimientos planteados.</li>
+                    <li>Implementación: Programación, traducir el diseño en instrucciones.</li>
+                    <li>Actualización: corrige o mejora sistemas existenes.</li>
+                </ol>
             
-            <article>
-                <table>
-                    <tr>
-                        <td>Alligator: without doubt, the curiosity in every fan sparked as soon as the song started the first time they heard it. The lead single of FEVER DREAM is the only one with an official video so far, and it features the band in a strange hotel-like setting, with surreal scenes and Nanna being a reptilian-like being. The refreshed energy of the band can be felt throughout the song and the explosion of color in the accompanying lyric video as well.</td>
-                        <td><img src ="images/alligator.png" width="400 px"></td>
-                    </tr>
-                    <tr>
-                        <td><img src = "images/alligator1.png"/ width = "400 px"></td>
-                        <td><img src = "images/alligator2.png"/ width = "400 px"></td>
-                    </tr>
-                </table>
-            </article>
         </section>
         <hr>
         <br>
-        <h4>You can check out every official video and lyric video in the band's YouTube channel </h4><h4><a href="https://www.youtube.com/user/monstersandmen">clicking here!</a></h4>
+        <h4>Fuentes: </h4>
+        <footer>
+        <ul>
+            <li>https://medium.com/level-up-web/beginners-html-cheat-sheet-f9b1e3ce88a6</li>
+            <li>https://www.freecodecamp.org/news/http-and-everything-you-need-to-know-about-it/</li>
+            <li>https://www.bbc.com/mundo/noticias-47538812</li>
+            <li>https://www.humanlevel.com/diccionario-marketing-online/codigo-de-respuesta-200-ok#:~:text=El%20c%C3%B3digo%20de%20respuesta%20200%2C%20ok%2C%20es%20un%20c%C3%B3digo%20de,servidor%20y%20aceptada%20por%20%C3%A9ste.</li>
+            <li>https://www.inboundcycle.com/diccionario-marketing-online/error-404</li>
+            <li>https://www.cdmon.com/es/blog/error-500-internal-server-error#:~:text=El%20Error%20500%20%2D%20Internal%20server%20error%2C%20es%20un%20c%C3%B3digo%20de,cu%C3%A1l%20es%20el%20problema%20exacto.</li>
+            <li>https://www.tutorialspoint.com/html5/html5_deprecated_tags.htm#:~:text=Deprecated%20Attributes&text=Some%20attributes%20from%20HTML4%20are,they%20have%20been%20removed%20</li>
+            <li>completely.&text=img%20and%20iframe.&text=caption%2C%20iframe%2C%20img%2C%20input,%2C%20th%2C%20thead%20and%20tr.</li>
+            <li>https://sooluciona.com/diferencias-entre-html4-y-html5/</li>
+            <li>https://disenowebakus.net/tablas-html.php</li>
+            <li>https://imacreste.com/crear-formularios-con-html5/</li>
+            <li>http://html5test.com/</li>
+            <li>https://blog.powerdata.es/el-valor-de-la-gestion-de-datos/ciclo-de-vida-de-un-sistema-de-informacion-fases-y-componentes</li>
+            <li>http://desarrollo-de-soft.com.ar/que-es-un-ciclo-de-vida-de-desarrollo-de-software/</li>
+            <li>https://www.uv.mx/personal/artulopez/files/2012/10/05-MD-de-SI.pdf</li>
+            <li>https://www.definicionabc.com/tecnologia/url.php#:~:text=URL%20significa%20%22Uniform%20Resource%20Locator,para%20su%20descarga%20y%20utilizaci%C3%B3n.</li>
+            <li>https://www.viainternet.com.mx/clientes/index.php/knowledgebase/21/iQue-es-MIME-Types.html</li>
+        </ul>
+    </footer>
     </body>
-    <footer>Disclaimer: images, albums, and songs referenced are works by Of Monsters and Men.</footer>
+    
 </html>
