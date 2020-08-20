@@ -62,7 +62,29 @@
                 
             </script>
             <h4>2 - Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta.</h4>
+            <button onclick="sumaAleatoria()">Reto 2</button>
+
+            <p id="output"></p>
             <script type="text/javascript">
+                function sumaAleatoria(){
+                    var start = new Date().getTime();
+                    var numero1 = Math.round(Math.random() * 10);
+                    var numero2 = Math.round(Math.random() * 10);
+                    var respuesta = numero1 + numero2;
+                    var intento = prompt("¿Cuánto es "+numero1+" + "+numero2+"?", "Escribe aquí tu respuesta");
+                    if (intento == respuesta) {
+                        var end = new Date().getTime();
+                        var totaltime = end-start;
+                    document.getElementById("output").innerHTML =
+                    "Correcto! Tardaste "+ totaltime/1000 +" segundos en obtener la respuesta!";
+                    }
+                    else{
+                        var end = new Date().getTime();
+                        var totaltime = end-start;
+                        document.getElementById("output").innerHTML =
+                    "Esa no es la respuesta :( Tardaste "+ totaltime/1000 +" segundos en contestar.";
+                    }
+                }
             </script>
             <h4>3 - Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.</h4>
             <script type="text/javascript">
