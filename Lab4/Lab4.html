@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <title>Laboratorio 4</title>
         <link href="Lab1format.css" rel="stylesheet">
+        <style>
+            table, td {border: 1px solid black;}
+        </style>
     </head>
     <body>
         <h1>Laboratorio 4: Fundamentos de JavaScript</h1>
@@ -12,23 +15,51 @@
         <br><br>
         <section><h3>Scripts corriendo</h3>
             <h4>1 - Entrada: un número pedido con un prompt. Salida: Una tabla con los números del 1 al número dado con sus cuadrados y cubos. Utiliza document.write para producir la salida</h4>
+            <table id="myTable">
+            
+            
+            </table>
+            <br>
+            
+            
             <script type="text/javascript">
+ 
                 function cuadradosCubos(){
+                    var mytable = document.createElement("TABLE")
                     var text;
                     var cuadrado, cubo;
                     var numero = prompt("Ingresa un número:", "5");
                     if(numero == null || numero == ""){
                         text = "Operación cancelada.";
                     }else{
-                        for(var i = 1; i<numero;i++){
+                        for(var i = 1; i<=numero;i++){
                             cuadrado = i ** 2;
                             cubo = i ** 3;
-                            document.write(cuadrado + " " + cubo + "\n");
+                            
+                            
+                            var table = document.getElementById("myTable");
+                            var row = table.insertRow(i-1);
+                            var cell1 = row.insertCell(0);
+                            var cell2 = row.insertCell(1);
+                            cell1.innerHTML = cuadrado;
+                            cell2.innerHTML = cubo;
+                            
+                           // document.write(cuadrado + " " + cubo + "\n");
+                            
                         }
+                        var row = table.insertRow(0);
+                        var cell1 = row.insertCell(0);
+                        var cell2 = row.insertCell(1);
+                        cell1.innerHTML = "Cuadrados";
+                        cell2.innerHTML = "Cubos";
+                        
                     }
+                    
                 }
-                
                 cuadradosCubos();
+              
+                
+                
             </script>
             <h4>2 - Entrada: Usando un prompt se pide el resultado de la suma de 2 números generados de manera aleatoria. Salida: La página debe indicar si el resultado fue correcto o incorrecto, y el tiempo que tardó el usuario en escribir la respuesta.</h4>
             <script type="text/javascript">
