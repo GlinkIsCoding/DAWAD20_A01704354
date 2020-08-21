@@ -87,15 +87,58 @@
                 }
             </script>
             <h4>3 - Función: contador. Parámetros: Un arreglo de números. Regresa: La cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.</h4>
+            <p>[0, 5, 70, 82, 0, -410, -20, 0, 102]</p>
+            <button onclick="numContador()">Contar negativos, ceros y positivos</button>
             <script type="text/javascript">
+                 function numContador(){
+                     var negativo=0, ceros=0, positivo=0, i;
+                     var numerosArray = [0, 5, 70, 82, 0, -410, -20, 0, 102]
+                     var nLen = numerosArray.length;
+                    for(i=0; i<nLen; i++){
+                        if(numerosArray[i]<0){
+                            negativo++;
+                        }
+                        else if(numerosArray[i]>0){
+                            positivo++;
+                        }
+                        else if(numerosArray[i]==0){
+                            ceros++;
+                        }
+                        
+                    }
+                     alert("Hay "+negativo + " números negativos, "+ ceros + " ceros y "+ positivo +" números positivos en el arreglo.");
+                }
+                
             </script>
             <h4>4 - Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.</h4>
+            <p>arr1 = [1, 2, 3, 4]</p>
+            <p>arr2 = [20, 20, 20]</p>
+            <p>arr3 = [56, 70, 89]</p>
+            <button onclick="numPromedios()">Obtener promedios del arreglo.</button>
             <script type="text/javascript">
+                function numPromedios(){
+                    var arr1 = [1, 2, 3, 4];
+                    var arr2 = [20, 20, 20];
+                    var arr3 = [56, 70, 89];
+                    var greatarray = [arr1, arr2, arr3];
+                    var thelength, i, j, suma, arrlength;
+                    var promedios = [];
+                    thelength= greatarray.length;
+                    for(i= 0; i<thelength; i++){
+                        suma =0;
+                        arrlength = greatarray[i].length;
+                        for(j=0; j<arrlength; j++){
+                            suma = suma + greatarray[i][j];
+                        }
+                        promedios.push(suma/arrlength);
+                    }
+                    alert("Los promedios de los arreglos son: "+ promedios);
+                }
+               
             </script>
             <h4>5- Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</h4>
             <button onclick="numInverso()">Invertir número</button>
 
-            <p id="outputinverso"></p>
             <script type="text/javascript">
                 function numInverso(){
                     var numero = prompt("Introduce el número a invertir", "Escribe aquí un número");
@@ -108,8 +151,68 @@
                 }
             </script>
             
-            <h4>6 - </h4>
+            <h4>6 - Se tiene una lista de amigos registrados con diferentes atributos, pero se requiere saber cuál es el promedio de edad de todos, accediendo a la lista en la que están registrados. Para esto se ha creado una clase Amigo con sus respectivos métodos. Los datos están enlistados abajo y el botón solo despliega el promedio. </h4>
+            <p>Vale, 20 años</p>
+            <p>George, 23 años</p>
+            <p>Axel, 20 años</p>
+            <p>Karen, 17 años</p>
+            <p>Nico, 11 años</p>
+            <button onclick="funcionAmigos()">Obtener la edad promedio de los amigos registrados.</button>
             <script type="text/javascript">
+                class Amigo{
+                    constructor(nombre, edad){
+                        this.nombre = nombre;
+                        this.edad = edad;
+                    }
+                    get anombre(){
+                        return this.nombre;
+                    }
+                    set anombre(nuevonombre){
+                        this.nombre = nuevonombre;
+                    }
+                    get aedad(){
+                        return this.edad;
+                    }
+                    set aedad(nuevaedad){
+                        this.edad = nuevaedad;
+                    }
+                }
+                
+                function promedioEdades(arreglo){
+                    var i, promedio, suma = 0;
+                    for(i=0; i<arreglo.length;i++){
+                        suma = suma + arreglo[i].aedad;
+                    }
+                    promedio = suma/arreglo.length;
+                    alert("La edad promedio de tus amigos registrados es de "+promedio+ " años.");
+                }
+                
+                function funcionAmigos(){
+                    
+                    Vale = new Amigo("Vale", 20);
+                    George = new Amigo("George", 23);
+                    Axel = new Amigo("Axel", 20);
+                    Karen = new Amigo("Karen", 17);
+                    Nico = new Amigo("Nico", 11);
+                
+                    var amigos = [];
+                
+                    amigos.push(Vale);
+                    amigos.push(George);
+                    amigos.push(Axel);
+                    amigos.push(Karen);
+                    amigos.push(Nico);
+                    
+                    
+                    promedioEdades(amigos);
+                    
+                }
+                
+                
+                   
+                
+                
+                
             </script>
             
         </section>
@@ -117,24 +220,39 @@
         <br>
         <section><h3>Preguntas a responder:</h3>
         <h4>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h4>
-        <p></p>
+        <p>JavaScript es un lenguaje de programación desarrollador por Netscape, Inc. que permite "instruir" a la computadora apenas recibe input del usuario. Primero llamado "LiveScript, se creó alrededor de 1990 y era indispensable para navegar por Internet.Java fue lanzado alrededor de 1995 y es u lenguaje de programación desarrollado por Sun Microsystems.</p>
+        <p>El código de Java debe compilarse, mientras que el código de JavaScript es puro texto. Cada lenguaje requiere plug-ings diferentes. JavaScript corre solo en un navegador, mientras que Java crea aplicaciones que corren en máquinas virtuales y browsers. Java y JavaScript son ampliamente usados en los dispositivos inteligentes de hoy.[5]</p>
         <h4>¿Qué métodos tiene el objeto Date? (Menciona al menos 5*)</h4>
-        <p></p>
+            <ol>
+                <li>getDate() : Regresa el día del mes.</li>
+                <li>getFullYear() : Regresa el año</li>
+                <li>getHours(): Regresa la hora (del 0 a 23)</li>
+                <li>getTime(): Regresa el número de milisegundos desde medianoche Enero 1 1970, y una fecha especificada.</li>
+                <li>getTimezoneOffset(): Regresa la diferencia de tiempo entre tiempo UTC y el tiempo local, en minutos.[4]</li>
+            </ol>
         <h4>¿Qué métodos tienen los arreglos? (Menciona al menos 5*)</h4>
-        <p></p>
+            <ol>
+                <li>toString(): convierte un array a string separados por comas.</li>
+                <li>pop(): saca el último elemento de un array.</li>
+                <li>push(): añade un nuevo elemento al array al final.</li>
+                <li>splice(): inserte y remueve elementos, permitiendo especificar la posición de los nuevos elementos que serán insertados.</li>
+                <li>concat(): crea un nuevo array juntando dos arrays existentes.[3]</li>
+            </ol>
         <h4>¿Cómo se declara una variable con alcance local dentro de una función?</h4>
-        <p></p>
+        <p>Se debe de anteponer la palabra reservada var, seguido del nombre por asignar a la variable. Esa variable tendrá solo alcance local, aunque también es posible delimitarlo con la palabra reservada let.[1]</p>
         <h4>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h4>
-        <p></p>
+        <p>Implica que debes tener en claro que es visible para todas las funciones y que de preferencia deben ser valores que sean constantes para todas ellas. Si no se toma esto en cuenta, podría usarse una variable que no se le reasigna un valor, utilizar el valor que obtuvo en una función anterior y generar errores inesperados en el código.</p>
         <h4>¿Qué método de String se puede utilizar para buscar patrones con expresiones regulares?¿Para qué podrías utilizar esto en una aplicación web?</h4>
-        <p></p>
+        <p>El método match(). Podría utilizarse para buscar un dato específico en una lista, si el usuario quisiera visualizarlo directamente en vez de buscarlo; podría usarse algo similar al Control + F o Command + F que utilizamos para buscar una palabra en específico. [2]</p>
         </section>
         <h4>Fuentes: </h4>
         <footer>
         <ul>
-            <li>.</li>
-            
-           
+            <li>[1]https://www.tutorialsteacher.com/javascript/scope-in-javascript</li>
+            <li>[2]https://www.w3schools.com/jsref/jsref_match.asp</li>
+            <li>[3]https://www.w3schools.com/js/js_array_methods.asp</li>
+            <li>[4]https://www.w3schools.com/jsref/jsref_obj_date.asp</li>
+            <li>[5]https://www.thesoftwareguild.com/faq/difference-between-java-and-javascript/</li>
         </ul>
     </footer>
     </body>
