@@ -92,12 +92,22 @@
             <h4>4 - Función: promedios. Parámetros: Un arreglo de arreglos de números. Regresa: Un arreglo con los promedios de cada uno de los renglones de la matriz.</h4>
             <script type="text/javascript">
             </script>
-            <h4>Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</h4>
+            <h4>5- Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</h4>
+            <button onclick="numInverso()">Invertir número</button>
+
+            <p id="outputinverso"></p>
             <script type="text/javascript">
+                function numInverso(){
+                    var numero = prompt("Introduce el número a invertir", "Escribe aquí un número");
+                    var inverso = parseFloat(numero
+                                .split('')
+                                .reverse()
+                                .join('')
+                              ) *Math.sign(numero)
+                    alert(numero+ " invertido es: "+ inverso);
+                }
             </script>
-            <h4>5 - Función: inverso. Parámetros: Un número. Regresa: El número con sus dígitos en orden inverso.</h4>
-            <script type="text/javascript">
-            </script>
+            
             <h4>6 - </h4>
             <script type="text/javascript">
             </script>
