@@ -13,7 +13,7 @@
         <h2>Codeando de poco a poco</h2>
         
         <br><br>
-        <section><h3>Registra tu tarjeta</h3>
+        <section><h3>Retiro de tarjeta</h3>
             <h4>Llena los campos correspondientes a tu tarjeta.</h4>
             
             
@@ -22,30 +22,59 @@
                 <label for = "name">Nombre:</label>
                 <input type="text" id= "name" name="name"><br><br>
                 <label for = "numero">Número de tarjeta:</label>
-                <input type="number" id="tarjeta" name="tarjeta" min="16" max="16"><br><br>
+                <input type="text" id="tarjeta" name="tarjeta" minlength = "16" maxlength="16"><br><br>
                 <label for = "vencimiento">Vencimiento:</label>
                 <input type="month" id="vencimiento" name="vencimiento" min="2020-09" max="2030-12" value="2020-12"><br><br>
                 <label for = "cvv">CVV:</label>
                 <input type="password" id = "cvv" name= "cvv" maxlength="3"><br><br>
-                <label for = "cvvverif">CVV:</label>
+                <label for = "cvvverif">Verificación de CVV:</label>
                 <input type="password" id = "cvvverif" name= "cvvverif" maxlength="3"><br><br>
-                
+                <label for= "montoretirar" name = "montoretirar">Monto a retirar: </label>
+                <input type="number" id = "montoretirar" name= "retiro"><br><br>
                
                 
                 <br><br>
-                <input type="submit" value="Registrar tarjeta">
+                
             </form>
+            <button  onclick= "cardUpdate()">Realizar retiro de tarjeta</button>
             <br><br>
-            <p id ="subtotal">B</p>
-            <p id ="iva"></p>
-            <p id ="total"></p>
+            <p id ="saldoactual">Saldo actual: $5000 MXN</p>
+            <p id ="dineroretiro">Monto retirado: $0 MXN</p>
+            
             
             <script>
-                function cardForm() {
-                let nombre = document.getElementById("name");
-                alert("HOLA");
+                function cardUpdate() {
+                    var valortarjeta = 5000;
                 
+                    var nombre = document.forms["cardForm"]["name"].value;
+                    var tarjeta = document.forms["cardForm"]["tarjeta"].value;
+                    var vencimiento = document.forms["cardForm"]["vencimiento"].value;
+                    var cvv = document.forms["cardForm"]["cvv"].value;
+                    var cvvverif = document.forms["cardForm"]["cvvverif"].value;
+                    var retiro = document.forms["cardForm"]["montoretirar"].value;
+                    if (nombre== "") {
+                        alert("Introduce un nombre válido");
+                        return false;
                     }
+                    if (tarjeta.length<16) {
+                        alert("Ingresa un número válido de tarjeta (16 dígitos)");
+                        return false;
+                    }
+                    if (cvv!=cvvverif) {
+                        alert("Verifica que introdujiste el CVV correctamente");
+                        return false;
+                    }
+                    if (retiro>valortarjeta) {
+                        alert("Introduce un valor menor o igual a tu saldo.");
+                        return false;
+                    }
+                    
+                    valortarjeta = valortarjeta - retiro;
+                    document.getElementById("saldoactual").innerHTML = "Saldo actual: $"+valortarjeta.toFixed(2)+ " MXN";
+                    document.getElementById("dineroretiro").innerHTML = "Monto retirado: $"+ retiro + " MXN";
+                    
+                
+                }
             </script>
                 
            
