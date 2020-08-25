@@ -16,8 +16,24 @@ h3{
 
 p{
     background-color: cadetblue; color: white;
+    text-align: center;
+}
+
+div{
+    background-color: cadetblue; color: white;
+    text-align: center;
 }
 
 table{
     background-color:whitesmoke;
+}
+
+body{
+    margin: 0 auto;
+    max-width: 50em;
+}
+
+form{
+    
+    text-align: center
 }

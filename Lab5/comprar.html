@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laboratorio 5</title>
+        <link href="Lab1format.css" rel="stylesheet">
+        <style>
+            table, td {border: 1px solid black;}
+        </style>
+    </head>
+    <body>
+        <h1>Laboratorio 5: Programación Orientada a Eventos</h1>
+        <h2>Codeando de poco a poco</h2>
+        
+        <br><br>
+        <section><h3>Phoenix Online Store</h3>
+            <h4>Selecciona la cantidad de objetos a comprar</h4>
+            
+            
+            <p><strong>CD thank u, next - Ariana Grande</strong></p>
+            <p>El álbum más reciente de la cantante. Incluye thank u,next, fake smile e imagine</p>
+            <p>$150.00 MXN + IVA</p>
+            <form name="buyForm"  onsubmit="return checkoutForm()" method="post">
+                <label for = "quantity">Cantidad:</label>
+                <input type="number" id= "quantity" name="tunquantity" min="0" max="80">
+                <p><strong>CD folklore (deluxe) - Taylor Swift</strong></p>
+                <p>$280.00 MXN + IVA</p>
+                <label for = "quantity">Cantidad:</label>
+                <input type="number" id= "quantity" name="folkquantity" min="0" max="80">
+                <p><strong>Vinil Lover - Taylor Swift</strong></p>
+                <p>$310.00 MXN + IVA</p>
+                <label for = "quantity">Cantidad:</label>
+                <input type="number" id= "quantity" name="loverquantity" min="0" max="80">
+                <br><br>
+                
+            </form>
+            <br><br>
+            <button  onclick= "checkoutForm()">Realizar compra:</button>
+            <p id ="subtotal">Subtotal: </p>
+            <p id ="iva">IVA: </p>
+            <p id ="total">Total: </p>
+            
+            <script>
+                function checkoutForm() {
+                    let pricetun = 150;
+                    let pricefolk = 280;
+                    let pricelover = 310;
+                    var subtun, subfolk, sublover, subtotal, ivatun, ivafolk, ivalover, ivatotal, grantotal;
+                    
+                    var ch1 = document.forms["buyForm"]["tunquantity"].value;
+                    var ch2 = document.forms["buyForm"]["folkquantity"].value;
+                    var ch3 = document.forms["buyForm"]["loverquantity"].value;
+                    if (ch1 == "" || ch2 == "" || ch3 == "") {
+                        alert("Ingresa una cantidad");
+                        return false;
+                    }
+                    
+                    subtun = ch1*pricetun;
+                    subfolk = ch2*pricefolk;
+                    sublover = ch3*pricelover;
+                    subtotal = subtun+subfolk+sublover;
+                    ivatun = subtun * .16;
+                    ivafolk = subfolk * .16;
+                    ivalover = sublover * .16;
+                    ivatotal = ivatun+ivafolk+ivalover;
+                    grantotal = ivatotal+subtotal;
+                    
+                    
+                
+                document.getElementById("subtotal").innerHTML = "Subtotal: $"+subtotal+ " MXN";
+                document.getElementById("iva").innerHTML = "IVA: $"+ ivatotal.toFixed(2) + " MXN";
+                document.getElementById("total").innerHTML = "Gran total: $"+grantotal.toFixed(2)+ " MXN";
+                    }
+            </script>
+                
+           
+            
+        </section>
+        <hr>
+        <br>
+       
+     
+        <footer>
+        
+            
+        
+    </footer>
+    </body>
+    
+</html>

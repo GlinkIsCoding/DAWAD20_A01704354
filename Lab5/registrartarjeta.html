@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>Laboratorio 5</title>
+        <link href="Lab1format.css" rel="stylesheet">
+        <style>
+            table, td {border: 1px solid black;}
+        </style>
+    </head>
+    <body>
+        <h1>Laboratorio 5: Programación Orientada a Eventos</h1>
+        <h2>Codeando de poco a poco</h2>
+        
+        <br><br>
+        <section><h3>Registra tu tarjeta</h3>
+            <h4>Llena los campos correspondientes a tu tarjeta.</h4>
+            
+            
+            
+            <form name="cardForm"  onsubmit="return cardForm()" method="post">
+                <label for = "name">Nombre:</label>
+                <input type="text" id= "name" name="name"><br><br>
+                <label for = "numero">Número de tarjeta:</label>
+                <input type="number" id="tarjeta" name="tarjeta" min="16" max="16"><br><br>
+                <label for = "vencimiento">Vencimiento:</label>
+                <input type="month" id="vencimiento" name="vencimiento" min="2020-09" max="2030-12" value="2020-12"><br><br>
+                <label for = "cvv">CVV:</label>
+                <input type="password" id = "cvv" name= "cvv" maxlength="3"><br><br>
+                <label for = "cvvverif">CVV:</label>
+                <input type="password" id = "cvvverif" name= "cvvverif" maxlength="3"><br><br>
+                
+               
+                
+                <br><br>
+                <input type="submit" value="Registrar tarjeta">
+            </form>
+            <br><br>
+            <p id ="subtotal">B</p>
+            <p id ="iva"></p>
+            <p id ="total"></p>
+            
+            <script>
+                function cardForm() {
+                let nombre = document.getElementById("name");
+                alert("HOLA");
+                
+                    }
+            </script>
+                
+           
+            
+        </section>
+        <hr>
+        <br>
+       
+     
+        <footer>
+        
+            
+        
+    </footer>
+    </body>
+    
+</html>
