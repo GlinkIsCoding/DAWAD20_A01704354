@@ -11,17 +11,19 @@
     <body>
         <header><a href="Lab6.html">MC</a></header>
         <h1>Hola! Soy Guillermo!</h1>
-        <h2>Un poco de quién soy y sobre una de mis bandas favoritas!</h2>
+        <h2>Un poco de quién soy y sobre una de mis bandas favoritas!</h2><img class="sticky" src ="images/watermark.png" alt="Marca de agua" width="200">
         <h3>Puedes navegar la página o hacer clic en los links debajo para ir directamente a las secciones:</h3>
         <nav>
             <ul class = "links">
-                <li><a href=#GCEM>Sobre mí</a></li>
-                <li><a href=#MHIAA>My Head Is an Animal</a></li>
-                <li><a href=#BTS>Beneath The Skin</a></li>
-                <li><a href=#FD>FEVER DREAM</a></li>
+                <li><a href=#GCEM onmouseover="changestyle(this)" onmouseout="resetstyle(this)">Sobre mí</a></li>
+                <li><a href=#MHIAA onmouseover="changestyle(this)" onmouseout="resetstyle(this)">My Head Is an Animal</a></li>
+                <li><a href=#BTS onmouseover="changestyle(this)" onmouseout="resetstyle(this)">Beneath The Skin</a></li>
+                <li><a href=#FD onmouseover="changestyle(this)" onmouseout="resetstyle(this)">FEVER DREAM</a></li>
             </ul>
         </nav>
+        
         <br><br>
+        
         <section><a id = "GCEM"><h3>Sobre mí</h3></a>
             
                 <p>Tengo 21 años y estoy a mitad de camino en esta aventura que ha sido la carrera. Qué tanto aguardará la siguiente mitad?</p>
@@ -117,4 +119,13 @@
         <h4>Hice una pequeña investigación sobre HTML! </h4><h4><a href="Lab1info.html">Haz clic aquí para leer sobre estos recursos!</a></h4>
         <footer>Disclaimer: las imágenes, álbumes y canciones referenciadas son trabajos protegidos y originales de Of Monsters and Men.</footer>
     </body>
+    <script>
+        function changestyle(x){
+            x.style.fontStyle="italic";
+        }
+        
+        function resetstyle(x){
+            x.style.fontStyle= "normal"
+        }
+    </script>
 </html>
