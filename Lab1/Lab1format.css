@@ -1,0 +1,39 @@
+html{
+    background-color: azure;
+}
+
+h1{
+    background-color: oldlace; color: black; text-align: center;
+}
+
+h2{
+    background-color: cadetblue; color: white; text-align: end
+}
+
+h3{
+    color: coral; text-align: center;
+}
+
+p{
+    background-color: cadetblue; color: white;
+    text-align: center;
+}
+
+div{
+    background-color: cadetblue; color: white;
+    text-align: center;
+}
+
+table{
+    background-color:whitesmoke;
+}
+
+body{
+    margin: 0 auto;
+    max-width: 50em;
+}
+
+form{
+    
+    text-align: center
+}
