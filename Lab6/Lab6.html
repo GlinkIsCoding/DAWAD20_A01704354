@@ -57,7 +57,7 @@
                     <tbody>
                         <tr>
                         <td>Little Talks: esta canción fue el primer gran hit de la banda y por la que más se les conoce. El video narra la historia de una tripulación en un barco volador que se encuentra con una chica de otro mundo, aparentemente buscando volver a casa. Ella se les une en su viaje y les proteje de bestias gigantes que rodean esas tierras misteriosas.</td>
-                        <td><img src ="images/littletalks.png" alt="Little talks video image" width="400"></td>
+                        <td><img src ="images/littletalks.png" alt="Little talks video image" width="400" onmouseover="channelPromo()"></td>
                     </tr>
                     <tr>
                         <td><img src = "images/kingandlionheart.png" alt="King and Lionheart video image" width = "400"></td>
@@ -116,7 +116,7 @@
         </section>
         <hr>
         <br>
-        <h4>Hice una pequeña investigación sobre HTML! </h4><h4><a href="Lab1info.html">Haz clic aquí para leer sobre estos recursos!</a></h4>
+        <h4>Aquí está la investigación de este lab! </h4><h4><a href="Lab6info.html " onmouseover="changestyle(this)" onmouseout="resetstyle(this)">Haz clic aquí para leer sobre los recursos usados!</a></h4>
         <footer>Disclaimer: las imágenes, álbumes y canciones referenciadas son trabajos protegidos y originales de Of Monsters and Men.</footer>
     </body>
     <script>
@@ -126,6 +126,12 @@
         
         function resetstyle(x){
             x.style.fontStyle= "normal"
+        }
+        
+        function channelPromo(){
+            setTimeout(function(){
+                alert("Si te interesa ver los videos de la banda, ingresa a https://www.youtube.com/user/monstersandmen !");
+            }, 3000);
         }
     </script>
 </html>
