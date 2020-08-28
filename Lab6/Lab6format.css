@@ -30,7 +30,7 @@ p{
 }
 
 div{
-    background-color: cadetblue; color: white;
+    background-color: white; color: white;
     text-align: center;
 }
 
@@ -106,3 +106,13 @@ img.header{
     position: sticky;
     top: 0;
 }
+#div1 {
+width:25%;
+    
+  height: 200px;
+  border: 1px solid #aaaaaa;
+    margin: auto;
+  width: 25%;
+  padding: 10px;
+}
+
