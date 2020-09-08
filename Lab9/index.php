@@ -37,14 +37,21 @@ echo arreglolistas($lista2);
 </div>
 
 
-
-
 <h3 class="center-align">Tablas de cuadrados y cubos</h3>
 
 <div class="container centered">
 <?php
 echo tablacuadradocubo(5);
 echo tablacuadradocubo(7);
+?>
+</div>
+
+<h3 class="center-align">Ejercicio personalizado</h3>
+
+<div class="container centered">
+    <p>Recibimos una lista de números y necesitamos determinar si 10, 9 u 8 son factores de estos números sin dejar residuo.</p>
+<?php
+echo funcionextra($lista2);
 ?>
 </div>
 
