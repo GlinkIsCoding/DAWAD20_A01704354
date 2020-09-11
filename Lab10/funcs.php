@@ -1,5 +1,16 @@
 <?php
 
+function elegir_artista($seleccionado){
+    $artista = "troye";
+    $resultado = "";
+    if($seleccionado == $artista){
+            $resultado = "El artista es $artista";
+        }
+        else{
+            $resultado ="No es $seleccionado.<br>";
+        }
+    return $resultado;
+}
 
 function funcionextra($input){
         $tabla = "<table>";

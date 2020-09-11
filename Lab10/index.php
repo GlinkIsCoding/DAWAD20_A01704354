@@ -3,63 +3,32 @@ require_once("funcs.php");
 include("_header.html");
 ?>
 
-<h1 class="center-align">Lab 10</h1>
-
-<h3 class="center-align">Introduce un nombre</h3>
-
-<div class="container centered">
 <?php
-    $artista = "troye";
+    $informacion = "";
     if(isset($_GET["artista"])){
-        if($_GET["artista"] == $artista){
-            echo "El artista es $artista";
-        }
-        else{
-            echo"No es ".$_GET["artista"].".<br>";
-        }
+        $informacion = elegir_artista($_GET["artista"]);
     }
     else if(isset($_POST["artista"])){
-        if($_POST["artista"] == $artista){
-            echo "El artista es $artista";
-        }
-        else{
-            echo"No es ".$_POST["artista"].".<br>";
-        }
+        $informacion = elegir_artista($_POST["artista"]);
     }
     else{
-        echo "Ningun artista seteado";
+        $informacion = "Ningun artista seteado";
     }
+    
 ?>
     
+    <?= $informacion ?>
     
-<form action="index.php" method="post" class="cols12">
-    <div class="row">
-        <div class="input-field col s6">
-            <input type="text" name="artista" class="validate" placeholder="Troye Sivan">
-            <label for="artista">Nombre del artista: </label>
-        </div>
-    </div>
-    
-    
-    <input type="submit" value="Saber más">
-    </form>
-</div>
+<?php
+include("_form.html");
+
+?>
 
 
-
-<div class="container">
-    <h3 class="center-align">Preguntas</h3>
-    <h4></h4>
-        <p class = "flow-text"></p>
-        
-    <h4>Fuentes:</h4>
-    <ul>
-        <li></li>
-    </ul>
-</div>
 
 
 <?php
+include("_preguntas.html");
 include("_footer.html");
 
 ?>
