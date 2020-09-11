@@ -4,8 +4,24 @@
             <input type="text" name="artista" class="validate" placeholder="Troye Sivan">
             <label for="artista">Nombre del artista: </label>
         </div>
+        <div class="input-field col s6">
+            <input type="text" name="album" class="validate" placeholder="Blue Neighborhood">
+            <label for="album">Álbum: </label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+            <input name="email" type="email" class="validate">
+            <label for="email">Tu email:</label>
+            <span class="helper-text" data-error="Debe ser una dirección válida" data-success="Correcto"></span>
+        </div>
+          <div class="input-field col s6">
+            <input name="celular" type="text"  class="validate" maxlength="10" minlength="10">
+            <label for="celular">Tu celular:</label>
+            <span class="helper-text" data-error="Deben ser 10 dígitos" data-success="Correcto">Introduce un número a 10 dígitos</span>
+          </div>
     </div>
     
-    <input type="submit" value="Saber más">
+    <input type="submit" value="Saber más" class="white btn waves-effect waves-purple">
 </form>
         
