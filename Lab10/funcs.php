@@ -1,5 +1,14 @@
 <?php
 
+function clear_entries(){
+    if(isset($_GET["artista"])){
+        $_GET["artista"] = htmlspecialchars($_GET["artista"]);
+}
+    if(isset($_POST["artista"])){
+        $_POST["artista"] = htmlspecialchars($_POST["artista"]);
+    }
+}
+
 function elegir_artista($seleccionado){
     $artista = "troye";
     $resultado = "";
@@ -11,6 +20,21 @@ function elegir_artista($seleccionado){
         }
     return $resultado;
 }
+
+function enviar_artista(){
+     $informacion = "";
+    if(isset($_GET["artista"])){
+        $informacion = elegir_artista($_GET["artista"]);
+    }
+    else if(isset($_POST["artista"])){
+        $informacion = elegir_artista($_POST["artista"]);
+    }
+    else{
+        $informacion = "Ningun artista seteado";
+    }
+    return $informacion;
+}
+
 
 function funcionextra($input){
         $tabla = "<table>";
