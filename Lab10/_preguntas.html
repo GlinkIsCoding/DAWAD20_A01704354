@@ -1,11 +1,23 @@
 <div class="container">
     <h3 class="center-align">Preguntas</h3>
-    <h4></h4>
-        <p class = "flow-text"></p>
+    <h4>¿Por qué es una buena práctica separar el controlador de la vista?</h4>
+        <p class = "flow-text">Porque permite crear software que sea más robusto con un mejor ciclo de vida; se potencia la facilidad de mantenimiento, reutilización de código y la separación de conceptos. Le da estructura y orden al momento de mantener y trabajar la página.</p>
+    <h4>Aparte de los arreglos $_POST y $_GET, ¿qué otros arreglos están predefinidos en php y cuál es su función?</h4>
+        <p class = "flow-text">$_FILES: Un array asociativo que permite cargar items al script por medio del método POST.</p>
+        <p class = "flow-text">$_REQUEST: Un array asociativo que solicita e incluye los contenidos de $_GET, $_POST y $_COOKIE.</p>
+        <p class = "flow-text">$_SERVER: Un array asociativo que incluye la información de headers, paths y locaciones de scripts.</p>
+    <h4>Explora las funciones de php, y describe 2 que no hayas visto en otro lenguaje y que llamen tu atención.</h4>
+        <p class = "flow-text">memory_get_usage(): sirve para comprobar el uso actual de memoria. No elimina nada, solo muestra la información, para poder administrar mejor de manera manual el cerrar procesos.</p>
+        <p class = "flow-text">uniqid(): permite generar un valor único que jamás se repite; sirve para cuando se necesita dar acceso temporal con seguridad añadida y que no se dupliquen conexiones.</p>
+    <h4>¿Qué es XSS y cómo se puede prevenir?</h4>
+        <p class = "flow-text">Es inyectar código sobre algún campo de entrada de datos que una página web ofrezca para ejecutarlo, generando resultados inesperados para el diseñador de software. Para prevenirlo, debemos filtrar las entradas de usuario para evitar que se introduzcan secuencias de caracteres escritas en HTML. También se deben implantar y configurar cortafuegos de aplicación web (WAF), que filtran los ataques que escapen la primera línea de defensa.</p>
         
     <h4>Fuentes:</h4>
     <ul>
-        <li></li>
+        <li>https://blogs.imf-formacion.com/blog/tecnologia/xss-que-es-y-como-funciona-201805/</li>
+        <li>https://www.deustoformacion.com/blog/programacion-diseno-web/funciones-programacion-php-que-desconocias</li>
+        <li>https://www.php.net/manual/en/reserved.variables.php</li>
+        <li>https://desarrolloweb.com/articulos/que-es-mvc.html</li>
     </ul>
 </div>
         
