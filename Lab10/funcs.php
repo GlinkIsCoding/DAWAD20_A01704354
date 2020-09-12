@@ -70,44 +70,22 @@ function validate_cellphone(){
 }
 
 
-function elegir_artista($seleccionado){
-    $artista = "troye";
-    $resultado = "";
-    if($seleccionado == $artista){
-            $resultado = "El artista es $artista";
-        }
-        else{
-            $resultado ="No es $seleccionado.<br>";
-        }
-    return $resultado;
-}
-
-function enviar_artista(){
-     $informacion = "";
-    if(isset($_POST["artista"])){
-        $informacion = elegir_artista($_POST["artista"]);
-    }
-    else{
-        $informacion = "Ningun artista seteado";
-    }
-    return $informacion;
-}
 
 function despliega_info($art, $alb, $email, $cel){
     $arianagrande = "Intérprete de thank u, next, sweetener y stuck with u";
     $taylorswift = "Cantautora de folklore, álbum escrito, producido y lanzado durante la pandemia.";
     $troyesivan = "Cantante australiano, intérprete de Bloom, Easy y Suburbia";
-    $sweetener = "4to album de ariana";
-    $myeverything = "2do album de ariana";
-    $blueneighborhood = "album debut de troye";
-    $bloom = "segundo album de troye";
-    $folklore = "album mas reciente de taylor";
-    $lover = "album que contiene lover, cornelia street, etc.";
+    $sweetener = "Cuarto álbum de Ariana Grande";
+    $myeverything = "Segundo álbum de Ariana Grande";
+    $blueneighborhood = "Álbum debut de Troye Sivan";
+    $bloom = "Segundo álbum de Troye Sivan";
+    $folklore = "Álbum más reciente de Taylor Swift";
+    $lover = "Álbum que contiene Lover, Cornelia Street, y False God";
     $infoartista;
     $infoalbum;
     if(isset($_POST["artista"])&&isset($_POST["album"])){
-        $nombre = $_POST["artista"];
-        $nombrealbum = $_POST["album"];
+        $nombre = strtolower($_POST["artista"]);
+        $nombrealbum = strtolower($_POST["album"]);
         
         if($nombre == "ariana grande"){
             $infoartista = $arianagrande;
@@ -121,7 +99,22 @@ function despliega_info($art, $alb, $email, $cel){
     
         if($nombrealbum == "blue neighborhood"){
             $infoalbum = $blueneighborhood;
-        }   
+        }
+        elseif($nombrealbum == "my everything"){
+            $infoalbum = $myeverything;
+        }
+        elseif($nombrealbum == "lover"){
+            $infoalbum = $lover;
+        }
+        elseif($nombrealbum == "folklore"){
+            $infoalbum = $folklore;
+        }
+        elseif($nombrealbum == "bloom"){
+            $infoalbum = $bloom;
+        }
+        elseif($nombrealbum == "sweetener"){
+            $infoalbum = $sweetener;
+        }
     }
     
     
@@ -131,43 +124,19 @@ function despliega_info($art, $alb, $email, $cel){
         $tabla .="</table>";
         return $tabla;
     }
-}
-
-
-function funcionextra($input){
-        $tabla = "<table>";
-    
-        $tabla .= "<thead>";
-        $tabla .= "<tr>";
-        $tabla .= "<th>Número</th><th>¿Es divisible entre 10?</th><th>¿Es divisible entre 9?</th><th>¿Es divisible entre 8?</th>";
-        $tabla .= "</tr>";
-        $tabla .= "</thead>";
-        $size = count($input);
-        for($i = 0; $i<$size;$i++){
-       $tabla .= "<tr>";
-        $tabla .= "<td> $input[$i] </td>";
-        if ($input[$i] % 10 == 0){
-            $tabla .= "<td>SÍ</td>";
-        }
-        else{
-            $tabla .= "<td>NO</td>";
-        }
-        if ($input[$i] % 9 == 0){
-            $tabla .= "<td>SÍ</td>";
-        }
-        else{
-            $tabla .= "<td>NO</td>";
-        }
-        if ($input[$i] % 8 == 0){
-            $tabla .= "<td>SÍ</td>";
-        }
-        else{
-            $tabla .= "<td>NO</td>";
-        }
-                
-        $tabla.= "</tr>";
+    else if($art==false){
+        return "Introduce un nombre válido de los artistas de la lista.";
     }
-    $tabla .= "</table>";
-        return $tabla;
+    else if($alb==false){
+        return "Introduce un nombre válido de los álbumes de la lista.";
+    }
+    else if($email==false){
+        return "Introduce una dirección de e-mail válida.";
+    }
+    else if($cel==false){
+        return "Introduce un número de celular válido.";
+    }
 }
+
+
 ?>
