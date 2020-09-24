@@ -27,14 +27,13 @@ function validate_user(){
 }
 
 function welcome($validation){
-    if ($validation== true){
+    if(isset($_SESSION["nombre"])){
+        if ($validation== true){
         return "Bienvenid@ ". $_SESSION["nombre"];
     }
     else
         return "Ingresa un usuario válido";
 }
-
-
-
+    }
 
 ?>

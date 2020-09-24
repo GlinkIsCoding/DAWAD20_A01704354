@@ -6,9 +6,8 @@ session_start();
 
 clear_entries();
 
-$userstatus = validate_user();
-$informacion = welcome($userstatus);
 
+include("_header.html");
 
 $target_dir = "/opt/lampp/htdocs/Lab12/uploads/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -53,13 +52,13 @@ if ($uploadOk == 0) {
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
     echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+    $_SESSION["newimage"] = "http://192.168.64.2/Lab12/uploads/".$_FILES["fileToUpload"]["name"] ;
   } else {
     echo "Sorry, there was an error uploading your file.";
   }
 }
 
-
-include("_header.html");
+include("_backbtn.html");
 include("_formfileupload.html");
 include("_footer.html");
 ?>
