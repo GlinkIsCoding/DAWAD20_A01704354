@@ -13,6 +13,7 @@ $informacion = welcome($userstatus);
 include("_header.html");
 include("_form.html");
 include("_informacion.html");
+include("_formfileupload.html");
 include("_preguntas.html");
 include("_footer.html");
 
