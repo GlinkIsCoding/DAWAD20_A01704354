@@ -1,8 +1,9 @@
 <?php if (isset($_SESSION["nombre"])): ?>
-    <form action="upload.php" method="post" enctype="multipart/form-data">
+<br><br><br>    
+<form action="upload.php" method="post" enctype="multipart/form-data">
         <div class = "file-field input-field">
             <div class="btn">
-                <span>Actualiza tu imagen:</span>
+                <span>Actualiza tu imagen para esta sesión:</span>
                 <input type="file" name="fileToUpload" id="fileToUpload">
             </div>
             <div class="file-path-wrapper">
@@ -11,5 +12,6 @@
         <input type="submit" name="submit" value="Subir selección" class="btn">
         </div>
     </form>
+<br><br>
         <?php endif; ?>
         

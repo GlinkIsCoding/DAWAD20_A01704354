@@ -2,20 +2,21 @@
     <h3 class="center-align">Preguntas</h3>
     <h4>¿Por qué es importante hacer un session_unset() y luego un session_destroy()?
 </h4>
-        <p class = "flow-text"></p>
+        <p class = "flow-text">Porque session_unset() solamente borra las variables de una sesión, la sesión sigue existiendo. session_destroy() nos permite borrar toda la sesión en cuanto el usuario decide salir; es importante para liberar los recursos del servidor y por cuestión de implementar una mejor seguridad.</p>
     <h4>¿Cuál es la diferencia entre una variable de sesión y una cookie?</h4>
-        <p class = "flow-text"></p>
+        <p class = "flow-text">Las sesiones se mantienen por un periodo de tiempo determinado, como una hora, en el servidor, o hasta que se cierre el navegador. Las cookies siempre que sean aceptadas por el navegador se mantienen en el cliente (navegador del usuario), hasta que sean eliminadas manualmente por el usuario.</p>
     <h4>¿Qué técnicas se utilizan en sitios como facebook para que el usuario no sobreescriba sus fotos en el sistema de archivos cuando sube una foto con el mismo nombre?</h4>
-        <p class = "flow-text"></p>
+        <p class = "flow-text">Se usan funciones de fecha y tiempo para concatenárselo al nombre del archivo, y se genera un nombre único dependiendo del momento de subida.</p>
     <h4>¿Qué es CSRF y cómo puede prevenirse?</h4>
-        <p class = "flow-text"></p>
+        <p class = "flow-text">CSRF o Cross Site Request Forgery es una manera en que un usuario con malas intenciones explota la autenticación de un usuario registrado en un sistema a través de código incrustado en una página que visitan.</p>
+        <p class="flow-text">Se puede prevenir generando un valor aleatorio cuando el usuario visita el sitio y guardándolo como cookie. Cada formulario y post request deberá incluir este valor aleatorio para que el servidor compare la cookie real con la generada en el formulario.</p>
         
     <h4>Fuentes:</h4>
     <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>https://medium.com/@GemmaBlack/csrf-the-a-z-2b85d26438b</li>
+        <li>https://stackoverflow.com/questions/846340/i-made-an-upload-script-in-php-how-do-i-avoid-overwriting-files</li>
+        <li>https://www.slideshare.net/LuisMiquelSnchezAcosta/session-y-cookies#:~:text=%EF%81%B6%20Diferencia%20entre%20session%20y,mantienen%20en%20el%20cliente%20(navegador</li>
+        <li>https://stackoverflow.com/questions/18537676/why-do-we-need-both-unset-and-session-destroy-when-we-are-doing-logout-php</li>
     </ul>
 </div>
         
