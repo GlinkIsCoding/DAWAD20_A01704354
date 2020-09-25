@@ -1,0 +1,83 @@
+Guillermo Carlos Espino Mateos - A01704354
+
+Laboratorio 13
+
+Agrega un nuevo registro a la tabla de materiales:
+  INSERT INTO Materiales values(1000, 'xxx', 1000)
+
+Revisa el contenido de la tabla materiales y determina si existe alguna inconsistencia en el contenido de la tabla. ¿Cuál es? ¿A qué se debe?
+
+El problema es que ahora existen dos registros con la misma clave, y eso no debería pasar porque es la llave que garantiza unicidad en la tabla.
+Se debe a que no hemos definido restricciones en la tabla.
+
+
+Agrega nuevamente el registro a la tabla de materiales:
+  INSERT INTO Materiales values(1000, 'xxx', 1000)
+
+¿Qué ocurrió?
+
+No permitió añadir el registro debido a una violación de llave primaria:
+
+[2020-09-25 02:34:43] [23000][2627] Violation of PRIMARY KEY constraint 'llaveMateriales'. Cannot insert duplicate key in object 'a1704354.Materiales'. The duplicate key value is (1000).
+
+Verifica si la tabla de materiales tiene definido algún constraint (restricción):
+  sp_helpconstraint materiales
+
+¿Qué información muestra esta consulta?
+Muestra que el tipo de restricción es PRIMARY KEY, de nombre llaveMateriales y la llave es Clave.
+
+
+Asegúrate de crear constraints análogos para definir las llaves primarias de las tablas proveedores, y proyectos.
+
+¿Qué sentencias utilizaste para definir las llaves primarias?
+
+ALTER TABLE Proveedores add constraint llaveProveedores PRIMARY KEY (RFC)
+
+ALTER TABLE Proyectos add constraint llaveProyectos PRIMARY KEY (Numero)
+
+Define el constraint correspondiente a la llave primaria para la tabla entregan, considerando que en este caso, la llave primaria está integrada por varias columnas.
+
+¿Qué sentencias utilizaste para definir este constraint?
+ALTER TABLE Entregan add constraint llaveEntregan PRIMARY KEY (Clave,RFC,Numero,Fecha)
+
+Intenta insertar en la tabla entregan el siguiente registro:
+  INSERT INTO entregan values (0, 'xxx', 0, '1-jan-02', 0) ;
+
+¿Qué particularidad observas en los valores para clave, rfc y numero?
+La clave y el número son ceros, no tienen valor, y el RFC comienza con xxx, haciéndolo el último en orden ascendente. Además, el RFC no cumple con los mismos números de caracteres que los demás RFCs.
+¿Cómo responde el sistema a la inserción de este registro?
+Lo inserta en Entregan sin problemas, como el primer valor.
+
+Intenta nuevamente la inserción del registro inconsistente.
+¿Qué significa el mensaje que emite el sistema?
+Que la Clave insertada no cumple con la restricción definida para Clave en la tabla Materiales
+
+¿Qué significado tiene la sentencia anterior?
+Se convierte a la llave Clave como llave foránea que referencia a la llave primaria de Materiales (Clave). Así se le aplican las mismas restricciones que en aquella tabla.
+
+sp_helpconstraint tableName
+¿Qué significan las columnas de esas consultas?
+Especifican el tipo de restricción (llave primaria o foránea), a qué llave hace referencia en qué tabla y qué llaves foráneas hacen referencia a las llaves primarias en la tabla actual.
+
+Lista el registro que acabas de crear.
+1000,AAAA800101   ,5000,2020-09-25 03:11:47.120,0.00
+
+¿Qué uso se le está dando a GETDATE()?
+Se está obteniendo la fecha y hora actuales para indicar el momento en que se realiza el registro.
+
+¿Tiene sentido el valor del campo de cantidad?
+No, porque no se entregó nada.
+
+
+Intenta insertar un registro con cantidad igual o menor que 0.
+¿Cómo responde el sistema?
+No permite realizar el registro.
+
+¿Qué significa el mensaje?
+Que no se está cumpliendo con la restricción definida para Cantidad en Entregan (que la cantidad debe ser mayor a 0)
+
+Integridad referencial: La integridad referencial es una limitación aplicada a una base de datos relacional, en que los datos y relaciones entre ellos se organizan en tablas de filas y columnas, para que no se introduzcan datos inconsistentes. Sirve para asegurarse que los registros de tablas relacionadas son válidos, que cumplen con las restricciones establecidas por las llaves primarias y foráneas y que no se borren o cambien datos relacionados de forma accidental produciendo errores de integridad.
+
+Referencias:
+- Aulaclic.es. (s.f.). Conceptos básicos de integridad referencial. Recuperado de https://www.aulaclic.es/sql/b_8_1_1.htm
+- Dunning, D. (s.f.). ¿Qué es la integridad referencial y cómo puede evitar estos problemas un programador? Recuperado de https://techlandia.com/integridad-referencial-evitar-estos-problemas-programador-info_262424/
