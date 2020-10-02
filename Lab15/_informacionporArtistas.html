@@ -1,11 +1,3 @@
-<h6 class="center-align">A continuación se despliega la información de los álbumes de Taylor Swift</h6>
-<?php 
-$result = getAlbumesbyArtist("Taylor Swift");
-$informacion = despliegaInfo($result); ?>
-<div class="container"><?= $informacion ?></div>
-
-<h6 class="center-align">A continuación se despliega la información de los álbumes de Miley Cyrus</h6>
-<?php 
-$result = getAlbumesbyArtist("Miley");
-$informacion = despliegaInfo($result); ?>
+<h6 class="center-align">A continuación se despliega la información de la consulta por artista</h6>
+<?php $informacion = despliegaInfo($result); ?>
 <div class="container"><?= $informacion ?></div>

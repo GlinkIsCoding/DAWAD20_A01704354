@@ -1,6 +1,9 @@
 <?php
 
 function clear_entries(){
+    if(isset($_POST["id"])){
+        $_POST["id"] = htmlspecialchars($_POST["id"]);
+    }
     if(isset($_POST["nombre"])){
         $_POST["nombre"] = htmlspecialchars($_POST["nombre"]);
     }
@@ -19,48 +22,6 @@ function clear_entries(){
 }
 
 
-function connectDb(){
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "discos";
-    
-    $con = mysqli_connect($servername, $username, $password, $dbname);
-    
-    
-    if(!$con){
-        die("Connection failed: " . mysqli_connect_error());
-    }
-    return $con;
-}
-
-function closeDb($mysql){
-    mysqli_close($mysql);
-}
-
-function getAlbumes(){
-    $conn = connectDb();
-    $sql = "SELECT id, nombre, artista, unidades, precio, idioma FROM albumes";
-    $result = mysqli_query($conn,$sql);
-    closeDb($conn);
-    return $result;
-}
-
-function getAlbumesbyArtist($nombreartista){
-    $conn = connectDb();
-    $sql = "SELECT id, nombre, artista, unidades, precio, idioma FROM albumes WHERE artista LIKE '%".$nombreartista."%'";
-    $result = mysqli_query($conn,$sql);
-    closeDb($conn);
-    return $result;
-}
-
-function getCheapAlbumes($cheapprice){
-    $conn = connectDb();
-    $sql = "SELECT id, nombre, artista, unidades, precio, idioma FROM albumes WHERE precio <= '".$cheapprice."'";
-    $result = mysqli_query($conn,$sql);
-    closeDb($conn);
-    return $result;
-}
 
 function despliegaInfo($result){
     $tabla = "<table>";
@@ -98,40 +59,36 @@ function insert_album(){
     }
 }
 
-function insertarAlbum($nombre, $artista, $unidades, $precio, $idioma){
-    $conn = connectDb();
-    $sql = "INSERT INTO `albumes` (`id`, `nombre`, `artista`, `unidades`, `precio`, `idioma`) VALUES (NULL, '".$nombre."', '".$artista."', '".$unidades."', '".$precio."', '".$idioma."')";
-    
-    if(mysqli_query($conn, $sql)){
-        echo "New record created successfully";
-        closeDb($conn);
-        unset($_POST);
-        return true;
-    }else{
-        echo "Error: ". $sql."<br>".mysqli_error($conn);
-        closeDb($conn);
-        unset($_POST);
-        return false;
-    }
-    closeDb($conn);
-}
+
 
 function remove_album(){
     $id = $_POST["id"];
     if(delete_id($id)){
-        echo "Record deleted successfully";
+        echo "El registro ya no está en la base de datos";
     }else{
         
     }
 }
 
-function delete_id($id){
-    $conn = connectDb();
-    $sql = "DELETE FROM `albumes` WHERE `albumes`.`id` = ".$id;
-    $result = mysqli_query($conn,$sql);
-    closeDb($conn);
-    return $result;
+
+
+function update_album(){
+    $id = $_POST["id"];
+    $unidades = $_POST["unidades"];
+    $precio = $_POST["precio"];
+    if(strlen($precio)>0){
+        if(is_numeric($unidades) && is_numeric($id)){
+            if(update_id($id, $unidades,$precio)){
+                echo "Record updated successfully";
+            }else{
+                
+            }
+        }
+    }
 }
+
+
+
 
 
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 28, 2020 at 08:54 AM
+-- Generation Time: Oct 02, 2020 at 06:59 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -41,8 +41,8 @@ CREATE TABLE `albumes` (
 --
 
 INSERT INTO `albumes` (`id`, `nombre`, `artista`, `unidades`, `precio`, `idioma`) VALUES
-(1, 'Younger Now', 'Miley Cyrus', 20, 150, 'Inglés'),
-(2, 'Can\'t Be Tamed', 'Miley Cyrus', 67, 140, 'Inglés'),
+(1, 'Younger Now', 'Miley Cyrus', 70, 200, 'Inglés'),
+(2, 'Can\'t Be Tamed', 'Miley Cyrus', 80, 180, 'Inglés'),
 (3, 'In a Dream', 'Troye Sivan', 14, 200, 'Inglés'),
 (4, 'folklore', 'Taylor Swift', 2, 310, 'Inglés'),
 (5, 'Chromatica', 'Lady Gaga', 32, 250, 'Inglés'),
@@ -51,7 +51,7 @@ INSERT INTO `albumes` (`id`, `nombre`, `artista`, `unidades`, `precio`, `idioma`
 (8, 'reputation', 'Taylor Swift', 5, 110, 'Inglés'),
 (9, 'A passi piccoli', 'Michele Bravi', 3, 140, 'Italiano'),
 (10, 'thank u, next', 'Ariana Grande', 6, 110, 'Inglés'),
-(11, 'Sweetener', 'Ariana Grande', 0, 180, 'Inglés');
+(28, 'Bangerz', 'Miley Cyrus', 70, 170, 'Inglés');
 
 --
 -- Indexes for dumped tables
@@ -71,7 +71,7 @@ ALTER TABLE `albumes`
 -- AUTO_INCREMENT for table `albumes`
 --
 ALTER TABLE `albumes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

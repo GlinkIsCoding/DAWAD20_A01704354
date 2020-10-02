@@ -4,12 +4,12 @@ require_once("model.php");
 clear_entries();
 $result = getAlbumes();
 include("_header.html");
-include("_introeliminar.html");
-if(isset($_POST["id"])){
-    remove_album();
+include("_introactualizar.html");
+if(isset($_POST["id"])&&isset($_POST["precio"])&&isset($_POST["unidades"])){
+    update_album();
     $result = getAlbumes();
 }
-include("_formremove.html");
+include("_formupdate.html");
 include("_informacionTotal.html");
 include("_footer.html");
 
