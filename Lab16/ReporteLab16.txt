@@ -1,0 +1,493 @@
+
+Guillermo Carlos Espino Mateos - A01704354
+
+-------------- Reporte Lab 16 -------------
+
+--------------INVESTIGACIÓN----------------
+
+############## ORACLE #####################
+
+- Requerimientos Generales de Hardware
+- Ambientes o plataformas en las que pueden operar.
+- Costos de implementación y mantenimiento.
+- Ventajas y desventajas de su uso.
+- Porcentaje del mercado que controlan
+
+
+############## SQL Server #####################
+
+- Requerimientos Generales de Hardware
+- Ambientes o plataformas en las que pueden operar.
+- Costos de implementación y mantenimiento.
+- Ventajas y desventajas de su uso.
+- Porcentaje del mercado que controlan
+
+############## MySql #####################
+
+- Requerimientos Generales de Hardware
+- Ambientes o plataformas en las que pueden operar.
+- Costos de implementación y mantenimiento.
+- Ventajas y desventajas de su uso.
+- Porcentaje del mercado que controlan
+
+############## DBMS No relacional #####################
+
+- Requerimientos Generales de Hardware
+- Ambientes o plataformas en las que pueden operar.
+- Costos de implementación y mantenimiento.
+- Ventajas y desventajas de su uso.
+- Porcentaje del mercado que controlan
+
+
+Conclusiones
+
+Fuentes:
+
+- 
+
+
+--------------------CONSULTAS-------------------------
+
+Consulta de un tabla completa
+
+select * from materiales
+
+1000,Varilla 3/16,100.00
+1010,Varilla 4/32,115.00
+1020,Varilla 3/17,130.00
+
+Reporta 44 renglones
+
+
+Selección
+
+select * from materiales
+where clave=1000
+
+1000,Varilla 3/16,100.00
+
+Reporta 1 renglón
+
+
+Proyección
+
+select clave,rfc,fecha from entregan
+
+1000,AAAA800101   ,1998-07-08 00:00:00.000
+1000,AAAA800101   ,1999-08-08 00:00:00.000
+1000,AAAA800101   ,2000-04-06 00:00:00.000
+
+Reporta 132 renglones
+
+Reunión Natural
+
+select * from materiales,entregan
+where materiales.clave = entregan.clave
+
+1000,Varilla 3/16,100.00,1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00
+1000,Varilla 3/16,100.00,1000,AAAA800101   ,5019,1999-08-08 00:00:00.000,254.00
+1000,Varilla 3/16,100.00,1000,AAAA800101   ,5019,2000-04-06 00:00:00.000,7.00
+
+
+Reporta 132 renglones
+
+Si algún material no se ha entregado ¿Aparecería en el resultado de esta consulta?
+No, no aparecería.
+
+
+Reunión con criterio específico
+
+select * from entregan,proyectos
+where entregan.numero <= proyectos.numero
+
+1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00,5000,Vamos Mexico
+1200,EEEE800101   ,5000,2000-03-05 00:00:00.000,177.00,5000,Vamos Mexico
+1400,AAAA800101   ,5000,2002-03-12 00:00:00.000,382.00,5000,Vamos Mexico
+
+Reporta 1188 renglones
+
+Unión
+
+(select * from entregan where clave=1450)
+union
+(select * from entregan where clave=1300)
+
+1300,GGGG800101   ,5005,2002-06-10 00:00:00.000,521.00
+1300,GGGG800101   ,5005,2003-02-02 00:00:00.000,457.00
+1300,GGGG800101   ,5010,2003-01-08 00:00:00.000,119.00
+
+Reporta 3 renglones
+
+¿Cuál sería una consulta que obtuviera el mismo resultado sin usar el operador Unión? Compruébalo.
+
+SELECT *
+FROM Entregan
+WHERE Clave=1450 OR Clave=1300
+
+1300,GGGG800101   ,5005,2002-06-10 00:00:00.000,521.00
+1300,GGGG800101   ,5005,2003-02-02 00:00:00.000,457.00
+1300,GGGG800101   ,5010,2003-01-08 00:00:00.000,119.00
+
+Intersección
+
+(select clave from entregan where numero=5001)
+intersect
+(select clave from entregan where numero=5018)
+
+1010
+
+Reporta 1 renglón
+
+Diferencia
+
+select * from entregan
+WHERE Clave!=1000
+
+1010,BBBB800101   ,5001,2000-05-03 00:00:00.000,528.00
+1010,BBBB800101   ,5018,2000-11-10 00:00:00.000,667.00
+1010,BBBB800101   ,5018,2002-03-29 00:00:00.000,523.00
+
+Reporta 129 renglones
+
+Producto cartesiano
+
+select * from entregan,materiales
+
+1090,BBBB800101   ,5010,1998-01-03 00:00:00.000,421.00,1400,Pintura C1011,125.00
+1090,BBBB800101   ,5010,1998-06-06 00:00:00.000,612.00,1400,Pintura C1011,125.00
+1100,CCCC800101   ,5009,2000-08-06 00:00:00.000,466.00,1400,Pintura C1011,125.00
+
+Reporta 5808 renglones
+
+¿Cómo está definido el número de tuplas de este resultado en términos del número de tuplas de entregan y de materiales?
+
+Entregan tiene 132 tuplas y Materiales tiene 44. 132 * 44 = 5808. 5808 es resultado de la multiplicación del número de duplas de ambas tablas.
+
+Construcción de consultas a partir de una especificación
+
+Plantea ahora una consulta para obtener las descripciones de los materiales entregados en el año 2000.
+
+SET DATEFORMAT dmy
+SELECT M.Descripcion
+FROM Entregan E, Materiales M
+WHERE E.Fecha >= '01/01/00' AND E.Fecha <= '31/12/00' AND E.Clave = M.Clave
+
+Varilla 3/16
+Varilla 4/32
+Varilla 4/32
+Varilla 4/33
+Varilla 3/18
+
+Reporta 28 renglones
+
+¿Por qué aparecen varias veces algunas descripciones de material?
+Porque esos materiales fueron entregados varias veces a lo largo del año, en diferentes fechas.
+
+Uso del calificador distinct
+
+SET DATEFORMAT dmy
+SELECT DISTINCT M.Descripcion
+FROM Entregan E, Materiales M
+WHERE E.Fecha >= '01/01/00' AND E.Fecha <= '31/12/00' AND E.Clave = M.Clave
+
+Arena
+Block
+Cantera rosa
+Ladrillos grises
+Megablock
+
+
+Reporta 22 renglones
+
+¿Qué resultado obtienes en esta ocasión?
+La descripción de los materiales entregados a lo largo del año sin que se repitan.
+
+Ordenamientos
+
+Obtén los números y denominaciones de los proyectos con las fechas y cantidades de sus entregas, ordenadas por número de proyecto, presentando las fechas de la más reciente a la más antigua.
+
+SELECT P.Numero, P.Denominacion, E.Fecha, E.Cantidad
+FROM Proyectos P, Entregan E
+WHERE P.Numero = E.Numero
+ORDER BY P.Numero,E.Fecha DESC
+
+5000,Vamos Mexico,2002-03-12 00:00:00.000,382.00
+5000,Vamos Mexico,2000-03-05 00:00:00.000,177.00
+5000,Vamos Mexico,1998-07-08 00:00:00.000,165.00
+5001,Aztecón,2000-05-03 00:00:00.000,528.00
+
+Reporta 132 renglones
+
+Operadores de cadena
+
+SELECT * FROM productos where Descripcion LIKE 'Si%'
+
+1120,Sillar rosa,100.00
+1130,Sillar gris,110.00
+
+Reporta 2 renglones
+
+¿Qué resultado obtienes?
+1120,Sillar rosa,100.00
+1130,Sillar gris,110.00
+
+Explica qué hace el símbolo '%'.
+Busca las coincidencias con los caracteres antes de él (si se usa como sufijo) o después de él (si se usa como prefijo).
+
+¿Qué sucede si la consulta fuera : LIKE 'Si' ?
+No se buscarían los registros cuya descripción empezara con 'Si', sino que buscaría la descripción que fuera exclusivamente 'Si'.
+
+¿Qué resultado obtienes?
+Una consulta vacía.
+
+Explica a qué se debe este comportamiento.
+Se debe a que el operador comodín permite buscar todos los registros de Descripción que comiencen con los caracteres 'Si', sin importar qué tenga el registro después de ellos. Al buscar exclusivamente con 'Si', sin el operador, estamos buscando las coincidencias de registros que se llamen 'Si'.
+
+¿Qué resultado obtienes de ejecutar el siguiente código?
+DECLARE @foo varchar(40);
+DECLARE @bar varchar(40);
+SET @foo = '¿Que resultado';
+SET @bar = ' ¿¿¿??? '
+SET @foo += ' obtienes?';
+PRINT @foo + @bar;
+
+Se obtiene lo siguiente:
+
+[2020-10-05 23:16:34] [S0001] ¿Que resultado obtienes? ¿¿¿???
+
+¿Para qué sirve DECLARE?
+Para declarar variables en SQL y poder almacenar datos temporalmente.
+
+¿Cuál es la función de @foo?
+Guardar un String de extensión 40 y concatenar otro String ('¿Que resultado' y ' obtienes?', respectivamente)
+
+¿Que realiza el operador SET?
+Le asigna un valor inicial a la variable
+
+
+Ahora explica el comportamiento, función y resultado de cada una de las siguientes consultas:
+
+SELECT RFC FROM Entregan WHERE RFC LIKE '[A-D]%';
+
+AAAA800101   
+AAAA800101   
+AAAA800101   
+BBBB800101   
+
+Reporta 72 renglones
+
+La consulta selecciona los RFCs que comiencen con los caracteres A, B, C o D de todos los registros que fueron entregados. Al usar el operador % después del conjunto de A a D, puede devolver todos los que empiezan con esas letras.
+
+SELECT RFC FROM Entregan WHERE RFC LIKE '[^A]%';
+
+BBBB800101   
+BBBB800101   
+BBBB800101   
+CCCC800101   
+
+Reporta 114 renglones
+
+La consulta selecciona los RFCs que no comiencen con el carácter A de todos los registros que fueron entregados. Al usar el operador [^] con %, podemos especificar que la primera letra no sea A, pero todo lo demás puede ser cualquier secuencia de caracteres con cualquier contenido.
+
+SELECT Numero FROM Entregan WHERE Numero LIKE '___6';
+
+5016
+5016
+5006
+5006
+
+Reporta 14 renglones
+
+La consulta selecciona los Números de los Materiales entregados cuyo cuarto número sea 6. Al usar tres guiones bajos, dejamos que los otros números pueden ser cualquier otro, pero el cuarto debe coincidir con 6 y seleccionamos el correspondiente.
+
+
+BETWEEN Es un operador para especificar intervalos. Una aplicación muy común de dicho operador son intervalos de fechas.
+
+SELECT Clave,RFC,Numero,Fecha,Cantidad
+FROM Entregan
+WHERE Numero Between 5000 and 5010;
+
+1000,AAAA800101   ,5000,1998-07-08 00:00:00.000,165.00
+1010,BBBB800101   ,5001,2000-05-03 00:00:00.000,528.00
+1020,CCCC800101   ,5002,2001-07-29 00:00:00.000,582.00
+1030,DDDD800101   ,5003,1998-02-21 00:00:00.000,202.00
+
+Reporta 60 renglones.
+
+¿Cómo filtrarías rangos de fechas?
+Usando el operador Between para indicar un rango de fechas y añadiendo operadores AND a la condición para escribir más BETWEENS y permitir más registros dentro de otras fechas.
+
+EXISTS Se utiliza para especificar dentro de una subconsulta la existencia de ciertas filas.
+
+SELECT RFC,Cantidad, Fecha,Numero
+FROM [Entregan]
+WHERE [Numero] Between 5000 and 5010 AND
+Exists ( SELECT [RFC]
+FROM [Proveedores]
+WHERE RazonSocial LIKE 'La%' and [Entregan].[RFC] = [Proveedores].[RFC] )
+
+AAAA800101   ,441.00,2002-05-03 00:00:00.000,5010
+CCCC800101   ,603.00,1998-04-07 00:00:00.000,5002
+CCCC800101   ,278.00,2000-08-02 00:00:00.000,5008
+
+
+Reporta 16 renglones
+
+¿Qué hace la consulta?
+Selecciona el RFC, Cantidad, Fecha y Número de los registros de materiales entregados cuyo número esté entre 5000 y 5010, y que además cuyo registro de RFC coincida con un Proveedor cuya razón social comience con 'La'.
+
+¿Qué función tiene el paréntesis ( ) después de EXISTS?
+Especificar la subconsulta en donde se van a buscar la consulta precedente.
+
+
+Tomando de base la consulta anterior del EXISTS, realiza el query que devuelva el mismo resultado, pero usando el operador IN
+
+SELECT RFC, Cantidad, Fecha, Numero
+FROM Entregan
+WHERE Numero between 5000 and 5010 AND RFC IN (
+    SELECT RFC
+    FROM Proveedores
+    WHERE RazonSocial LIKE 'La%' and Entregan.RFC = Proveedores.RFC
+    )
+
+Tomando de base la consulta anterior del EXISTS, realiza el query que devuelva el mismo resultado, pero usando el operador NOT IN 
+
+SELECT RFC, Cantidad, Fecha, Numero
+FROM Entregan
+WHERE Numero BETWEEN 5000 AND 5010 AND RFC NOT IN(
+    SELECT RFC
+    FROM Proveedores
+    WHERE RazonSocial NOT LIKE 'La%' and Entregan.RFC= Proveedores.RFC
+    )
+
+AAAA800101   ,165.00,1998-07-08 00:00:00.000,5000
+CCCC800101   ,582.00,2001-07-29 00:00:00.000,5002
+AAAA800101   ,86.00,1999-01-12 00:00:00.000,5008
+CCCC800101   ,466.00,2000-08-06 00:00:00.000,5009
+
+Reporta 16 renglones
+
+
+Realiza un ejemplo donde apliques algún operador : ALL, SOME o ANY.
+
+SELECT RazonSocial
+from Proveedores
+WHERE RFC = ANY (SELECT RFC FROM Entregan WHERE RFC LIKE 'B%')
+
+Oviedo
+
+Reporta 1 renglón
+
+
+¿Qué hace la siguiente sentencia? Explica por qué.
+Reporta los 2 primeros registros de Proyectos de la lista, ya que están ordenados por número de manera ascendente, son los dos con valor de número menor. Usa el operador TOP al que se le especifica tomar los primeros 2.
+
+SELECT TOP 2 * FROM Proyectos
+
+5000,Vamos Mexico
+5001,Aztecón
+
+Reporta 2 renglones
+
+¿Qué sucede con la siguiente consulta? Explica por qué.
+No funciona. Porque el operador TOP necesita un parámetro numérico para saber cuántos registros va a seleccionar. No estamos pasándole un parámetro numérico.
+
+SELECT TOP Numero FROM Proyectos
+
+¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad de la entrega y el precio del material y el impuesto asignado?
+
+.........PENDIENTE............
+
+VISTAS CREADAS
+
+
+Los materiales (clave y descripción) entregados al proyecto "México sin ti no estamos completos".
+
+SELECT M.Clave, M.Descripcion
+FROM Entregan E, Materiales M, Proyectos P
+WHERE E.Clave=M.Clave AND P.Numero=E.Numero AND P.Denominacion LIKE 'Mexico sin ti no estamos completos'
+
+1030,Varilla 4/33
+1230,Cemento 
+1430,Pintura B1022
+
+Reporta 3 renglones
+
+Los materiales (clave y descripción) que han sido proporcionados por el proveedor "Acme tools".
+
+SELECT M.Clave, M.Descripcion
+FROM Entregan E, Materiales M, Proveedores P
+WHERE E.Clave=M.Clave AND P.RFC=E.RFC AND P.RazonSocial LIKE 'Acme tools'
+
+Reporta 0 renglones, tabla vacía.
+
+El RFC de los proveedores que durante el 2000 entregaron en promedio cuando menos 300 materiales.
+
+SET DATEFORMAT dmy
+SELECT DISTINCT E.RFC
+FROM Entregan E
+WHERE E.Fecha BETWEEN '01/01/00' AND '31/12/00' AND EXISTS (
+    SELECT E.RFC, AVG(E.Cantidad) AS CantPromedio
+    FROM Proveedores P,
+         Entregan E
+    WHERE P.RFC = E.RFC
+    GROUP BY E.RFC
+    HAVING AVG(E.Cantidad) >= 300
+)
+
+AAAA800101   
+BBBB800101   
+CCCC800101   
+
+Reporta 8 renglones
+
+El Total entregado por cada material en el año 2000.
+
+SET DATEFORMAT dmy
+SELECT E.Clave, SUM(E.Cantidad) AS TotalEntregado
+FROM Entregan E
+WHERE E.Fecha BETWEEN '01/01/00' AND '31/12/00'
+GROUP BY E.Clave
+
+1000,7.00
+1010,1195.00
+1030,295.00
+
+Reporta 22 renglones
+
+La Clave del material más vendido durante el 2001. (se recomienda usar una vista intermedia para su solución)
+
+CREATE VIEW SUMVendidos2001 AS(
+        SELECT E.Clave, SUM(E.Cantidad) AS TotalEntregado
+        FROM Entregan E
+        WHERE E.Fecha BETWEEN '2001-01-01' AND '2001-12-31'
+        GROUP BY E.Clave )
+
+        SELECT TOP 1 S.Clave
+        FROM SUMVendidos2001 S
+        ORDER BY TotalEntregado DESC
+
+1020
+
+Reporta 1 renglón
+
+
+Productos que contienen el patrón 'ub' en su nombre.
+
+SELECT Descripcion, Clave
+FROM Materiales
+WHERE Descripcion LIKE '%ub%'
+
+Recubrimiento P1001,1180
+Recubrimiento P1010,1190
+Recubrimiento P1019,1200
+
+Reporta 12 renglones
+
+Denominación y suma del total a pagar para todos los proyectos.
+
+.........PENDIENTE A PARTIR DE AQUÍ...............
+
+
+
+
