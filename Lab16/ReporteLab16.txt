@@ -8,42 +8,180 @@ Guillermo Carlos Espino Mateos - A01704354
 ############## ORACLE #####################
 
 - Requerimientos Generales de Hardware
+
+AMD Opteron, Intel Pentium® at 500 MHz or faster, or Intel EM64T
+Minimum 500 MB free disk space for installation, 10 GB recommended
+Minimum 1 GB physical memory, 4 GB recommended
+
 - Ambientes o plataformas en las que pueden operar.
+
+Windows Server 2003 SP2
+Windows Server 2003 R2+
+Windows Server 2008 SP1+
+Windows XP SP2+
+Windows 7
+Solaris 9 Update 9+
+Solaris 10 Update 4+
+Oracle Linux 4 (UL7+)
+Oracle Linux 5 (UL3+)
+Red Hat Enterprise Linux 4 (UL7+)
+Red Hat Enterprise Linux 5 (UL3+)
+SUSE Linux Enterprise Server 10 (SP1+)
+SUSE Linux Enterprise Server 11 (all SP levels)
+
 - Costos de implementación y mantenimiento.
+
+Oracle ofrece sus servicios por un valor de entre $92-$460 USD para uso personal y $4,750-$47,500 USD para uso empresarial.
+
 - Ventajas y desventajas de su uso.
+
+Ventajas: Siempre tendrán las innovaciones de vanguardia y features en sus productos puesto que Oracle tiende a poner la vara para otros DBMS.
+Las herramientas son increíblemente robustas y puedes encontrar una que haga exactamente lo que necesitas.
+
+Desventajas: El costo de Oracle puede ser muy alto, especialmente para organizaciones pequeñas.
+El sistema puede requerir muchos recursos una vez que se instala, así que las mejoras de hardware pueden ser requeridas solo para implementar Oracle.
+
 - Porcentaje del mercado que controlan
 
+5.92%
 
 ############## SQL Server #####################
 
 - Requerimientos Generales de Hardware
+
+Hard Disk 6 GB of available hard-disk space.
+Memory Minimum:
+Express Editions: 512 MB
+All other editions: 1 GB
+Memory Recommended:
+Express Editions: 1 GB
+All other editions: At least 4 GB
+Minimum: x64 Processor: 1.4 GHz
+x64 Processor: AMD Opteron, AMD Athlon 64, Intel Xeon with Intel EM64T support, Intel Pentium IV with EM64T support
+
 - Ambientes o plataformas en las que pueden operar.
+
+Windows, Linux y contenedores Docker
+
 - Costos de implementación y mantenimiento.
+
+Enterprise $14,256
+Standard: por núcleo $3,717 
+Standard - servidor + CAL $931
+
 - Ventajas y desventajas de su uso.
+
+Ventajas: es muy rápido y estable.
+El engine ofrece la habilidad de ajustar y monitorear niveles de performance, lo que puede reducir el uso de recursos.
+Se puede acceder a las visualizaciones desde dispositivos móviles.
+Funciona muy bien con otros productos de Microsoft.
+
+Desventajas: El precio para manejo de una empresa
+Puede llegar a usar muchísimos recursos.
+Muchos tienen problemas usando el SQL Server Integration Services para importar archivos.
+
+
 - Porcentaje del mercado que controlan
+
+18.07%
 
 ############## MySql #####################
 
 - Requerimientos Generales de Hardware
+
+2 CPU Cores
+2 GB RAM
+Disk I/O subsystem applicable to a write-intensive database
+
 - Ambientes o plataformas en las que pueden operar.
+
+Linux x86 32-bit
+Linux x86 64-bit
+Mac OS X
+Solaris x86 64-bit
+Solaris Sparc 64-bit
+Free BSD
+Windows x86 32-bit
+Windows x86 64-bit
+
 - Costos de implementación y mantenimiento.
+
+MySQL Standard Edition USD 2,000 ANUAL
+MySQL Enterprise Edition USD 5,000 ANUAL
+
 - Ventajas y desventajas de su uso.
+
+Ventajas: Está disponible de manera gratuita.
+Ofrece mucha funcionalidad incluso para una base de datos gratis.
+Hay una gran variedad de interfaces de usuario que pueden ser implementadas.
+Puede hacerse funcionar con otras bases de datos, incluyendo DB2 y Oracle.
+
+Desventajas: Puede que gastes mucho tiempo y esfuerzo en lograr que MySQL haga cosas que otros sistemas hacen automáticamente, como crear backups incrementales.
+No hay soporte integrado para XML ni OLAP.
+Hay soporte disponible para la versión gratis, pero debe pagarse.
+
 - Porcentaje del mercado que controlan
 
-############## DBMS No relacional #####################
+15.35%
+
+############## DBMS No relacional: MongoDB #####################
 
 - Requerimientos Generales de Hardware
+
+50% of (RAM - 1 GB), or
+256 MB.
+x86/x86_64 processors
+
 - Ambientes o plataformas en las que pueden operar.
+
+Amazon Linux 2
+Debian 9 and 10
+RHEL / CentOS 6, 7, and 8
+SLES 12 and 15
+Ubuntu LTS 16.04, 18.04, and 20.04
+Windows Server 2016 and 2019
+
 - Costos de implementación y mantenimiento.
+
+Shared Clusters: Free
+Dedicated Clusters: 57 USD /month
+Dedicated Multi-Region Clusters: $95 USD/month
+
 - Ventajas y desventajas de su uso.
+
+Ventajas: es rápido y fácil de usar.
+El engine soporta JSON y otros documentos NoSQL
+Datos de cualquier estructura pueden ser almacenados y acusados fácil y rápidamente.
+Los esquemas pueden ser escritos sin downtime.
+
+Desventajas: SQL no se usa como lenguaje de consulta.
+Las herramientas para traducir SQL a consultas de MongoDB existen, pero añaden un paso adicional a usar el engine.
+El setup puede ser un proceso tardado.
+Los settings default no son seguros.
+
 - Porcentaje del mercado que controlan
 
+3.28%
 
 Conclusiones
 
+Es importante conocer las múltiples herramientas y engines que tenemos disponibles para almacenar y manejar los datos, ya que la mejor herramienta será la que mejor se adapte a las necesidades de la organización o empresa, los datos que necesiten manipular y qué tan sofisticadas necesitan que sean las funciones a realizar con ellos.
+
+Es un gran mercado del cual no tenía idea del que existiera tantísima variedad como esta sola investigación me ha dejado ver, y me llama la atención que estando en todos lados, siempre esté de alguna manera oculto o tras bambalinas. Es una gran oportunidad tener el conocimiento de este mundo de las bases de datos.
+
+
 Fuentes:
 
-- 
+- https://docs.oracle.com/cd/E24191_01/common/install/system_requirements.html
+- https://blog.capterra.com/how-much-does-database-management-software-cost/#:~:text=Cost%3A%20Vendors%20don't%20often,%2D%2447%2C500%20for%20enterprise%20businesses.
+- https://www.keycdn.com/blog/popular-databases
+- https://www.fool.com/investing/2016/09/29/despite-the-cloud-oracle-remains-the-database-king.aspx
+- https://docs.microsoft.com/en-us/sql/sql-server/install/hardware-and-software-requirements-for-installing-sql-server-ver15?view=sql-server-ver15
+- https://www.microsoft.com/es-es/sql-server/sql-server-2017
+- https://docs.oracle.com/cd/E19078-01/mysql/mysql-workbench/wb-installing.html
+- https://dev.mysql.com/doc/mysql-monitor/4.0/en/system-prereqs-reference.html
+https://www.datanyze.com/market-share/databases--272
+- https://docs.mongodb.com/manual/administration/production-notes/#hardware-considerations
 
 
 --------------------CONSULTAS-------------------------
@@ -127,6 +265,8 @@ WHERE Clave=1450 OR Clave=1300
 1300,GGGG800101   ,5005,2002-06-10 00:00:00.000,521.00
 1300,GGGG800101   ,5005,2003-02-02 00:00:00.000,457.00
 1300,GGGG800101   ,5010,2003-01-08 00:00:00.000,119.00
+
+Reporta 3 renglones
 
 Intersección
 
@@ -396,7 +536,18 @@ SELECT TOP Numero FROM Proyectos
 
 ¿Qué consulta usarías para obtener el importe de las entregas es decir, el total en dinero de lo entregado, basado en la cantidad de la entrega y el precio del material y el impuesto asignado?
 
-.........PENDIENTE............
+CREATE VIEW PRECIOSTOTALES AS(
+SELECT Clave,
+        Costo+(Costo*PorcentajeImpuesto/100) AS PrecioTotal
+FROM Materiales)
+
+SELECT SUM(E.Cantidad*P.PrecioTotal) AS ImporteTotal
+FROM PRECIOSTOTALES P, Entregan E
+WHERE P.Clave = E.Clave
+
+10953961.3574000000
+
+Reporta 1 renglón
 
 VISTAS CREADAS
 
@@ -486,7 +637,137 @@ Reporta 12 renglones
 
 Denominación y suma del total a pagar para todos los proyectos.
 
-.........PENDIENTE A PARTIR DE AQUÍ...............
+
+CREATE VIEW PRECIOSTOTALES AS(
+SELECT Clave,
+        Costo+(Costo*PorcentajeImpuesto/100) AS PrecioTotal
+FROM Materiales)
+
+CREATE VIEW CANTIDADESPORPROYECTO AS(
+SELECT DISTINCT Clave, Numero, SUM(Cantidad) AS CantidadProyecto
+FROM Entregan
+GROUP BY Numero, Clave)
+
+CREATE VIEW COSTOMATERIALPROYECTO AS(
+SELECT Pr.Denominacion, P.Clave, C.CantidadProyecto*P.PrecioTotal AS CostoProyecto
+FROM PRECIOSTOTALES P, CANTIDADESPORPROYECTO C, Proyectos Pr
+WHERE P.Clave = C.Clave AND C.Numero=Pr.Numero
+)
+
+SELECT Denominacion, SUM(CostoProyecto) AS COSTOTOTAL
+FROM COSTOMATERIALPROYECTO
+GROUP BY Denominacion
+
+Ampliación de la carretera a la huasteca,742461.194000
+Aztecón,150200.219000
+CIT Campeche,161603.082000
+
+Reporta 20 renglones
+
+Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Solo usando vistas).
+
+CREATE VIEW RFC_CON_TELEVISA AS
+(
+SELECT DISTINCT E.RFC
+FROM Proyectos Pr,
+     Entregan E,
+     Proveedores P
+WHERE Pr.Numero = E.Numero
+  AND P.RFC = E.RFC
+  AND Denominacion = 'Televisa en acción'
+    )
+
+CREATE VIEW RFC_CON_EDUCOAHUILA AS (
+SELECT DISTINCT E.RFC
+FROM Proyectos Pr,
+     Entregan E,
+     Proveedores P
+WHERE Pr.Numero = E.Numero
+  AND P.RFC = E.RFC
+  AND Denominacion = 'Educando en Coahuila'
+)
+
+CREATE VIEW TELEVISA_NOCOAHUILA  AS (
+SELECT DISTINCT Pr.Denominacion, P.RFC, P.RazonSocial
+FROM Proveedores P, Proyectos Pr, Entregan E
+WHERE E.RFC = P.RFC AND Pr.Numero=E.Numero AND E.RFC IN (SELECT * FROM RFC_CON_TELEVISA) AND E.RFC NOT IN (SELECT * FROM RFC_CON_EDUCOAHUILA)
+) AND E.RFC NOT IN (SELECT * FROM RFC_CON_EDUCOAHUILA)
+
+Ampliación de la carretera a la huasteca,CCCC800101   ,La Ferre
+Ampliación de la carretera a la huasteca,DDDD800101   ,Cecoferre
+CIT Campeche,CCCC800101   ,La Ferre
+
+Reporta 16 renglones
+
+Denominación, RFC y RazonSocial de los proveedores que se suministran materiales al proyecto Televisa en acción que no se encuentran apoyando al proyecto Educando en Coahuila (Sin usar vistas, utiliza not in, in o exists).
+
+SELECT DISTINCT Pr.Denominacion, P.RFC, P.RazonSocial
+FROM Proveedores P, Proyectos Pr, Entregan E
+WHERE E.RFC = P.RFC AND Pr.Numero=E.Numero AND E.RFC IN(
+SELECT DISTINCT E.RFC
+FROM Proyectos Pr,
+     Entregan E,
+     Proveedores P
+WHERE Pr.Numero = E.Numero
+  AND P.RFC = E.RFC
+  AND Denominacion = 'Televisa en acción'
+    ) AND E.RFC NOT IN (
+        SELECT DISTINCT E.RFC
+FROM Proyectos Pr,
+     Entregan E,
+     Proveedores P
+WHERE Pr.Numero = E.Numero
+  AND P.RFC = E.RFC
+  AND Denominacion = 'Educando en Coahuila'
+    )
+
+Ampliación de la carretera a la huasteca,CCCC800101   ,La Ferre
+Ampliación de la carretera a la huasteca,DDDD800101   ,Cecoferre
+CIT Campeche,CCCC800101   ,La Ferre
+
+Reporta 16 renglones
+
+Costo de los materiales y los Materiales que son entregados al proyecto Televisa en acción cuyos proveedores también suministran materiales al proyecto Educando en Coahuila.
+
+SELECT DISTINCT M.Costo, M.Descripcion
+FROM Proyectos Pr, Entregan E, Materiales M
+WHERE Pr.Numero=E.Numero AND E.Clave=M.Clave AND Pr.Denominacion= 'Televisa en acción' AND E.RFC IN(
+    SELECT DISTINCT E.RFC
+    FROM Proyectos Pr,
+     Entregan E
+    WHERE Pr.Numero = E.Numero
+     AND Denominacion = 'Educando en Coahuila'
+    )
+
+34.00,Tepetate
+50.00,Ladrillos rojos
+
+Reporta 2 renglones
+
+Nombre del material, cantidad de veces entregados y total del costo de dichas entregas por material de todos los proyectos.
+
+CREATE VIEW VECESENTREGADOS AS(
+SELECT E.Clave, M.Descripcion, COUNT(E.Clave) AS VECESENTREGADO
+FROM Entregan E, Materiales M
+WHERE E.Clave= M.Clave
+GROUP BY M.Descripcion, E.Clave)
+
+CREATE VIEW COSTOPORMATERIAL AS(
+SELECT M.Clave, SUM(M.Costo*E.Cantidad) AS COSTOPORMATERIAL
+FROM Materiales M, Entregan E
+WHERE M.Clave = E.Clave
+GROUP BY M.Clave)
+
+SELECT V.Descripcion, V.VECESENTREGADO, C.COSTOPORMATERIAL
+FROM COSTOPORMATERIAL C, VECESENTREGADOS V
+WHERE C.Clave = V.Clave
+
+Varilla 3/16,3,42600.0000
+Varilla 4/32,3,197570.0000
+Varilla 3/17,3,138840.0000
+
+Reporta 44 renglones
+
 
 
 
