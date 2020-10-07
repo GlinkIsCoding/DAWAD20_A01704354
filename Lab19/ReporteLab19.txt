@@ -1,0 +1,199 @@
+
+Guillermo Carlos Espino Mateos - A01704354
+
+-------------- Reporte Lab 19 -------------
+
+La suma de las cantidades e importe total de todas las entregas realizadas durante el 97.
+
+CREATE VIEW COSTOSCONIMPUESTOS AS (
+SELECT Clave, Costo+(Costo*PorcentajeImpuesto/100) AS CostoConImpuesto
+FROM Materiales)
+
+SET DATEFORMAT dmy
+SELECT E.Fecha AS FechaDeEntrega, SUM(Cantidad) AS CantidadesEntregadas, SUM(E.Cantidad*C.CostoConImpuesto) AS ImportedeEntrega
+FROM COSTOSCONIMPUESTOS C, Entregan E
+WHERE E.Clave=C.Clave AND E.Fecha BETWEEN '01/01/97' AND '31/12/97'
+GROUP BY E.Fecha
+
+FechaDeEntrega, CantidadesEntregadas, ImportedeEntrega
+1997-09-03 00:00:00.000,546.00,44789.4720000000
+
+Reporta 1 renglón
+
+Para cada proveedor, obtener la razón social del proveedor, número de entregas e importe total de las entregas realizadas.
+
+CREATE VIEW IMPORTEPORPROVEEDOR AS(
+SELECT E.RFC AS Proveedor, SUM(E.Cantidad*C.CostoConImpuesto) AS ImportedeEntregas
+FROM Entregan E, COSTOSCONIMPUESTOS C
+WHERE C.Clave=E.Clave
+GROUP BY E.RFC)
+
+SELECT P.RazonSocial, COUNT(E.RFC) AS NumeroEntregas, I.ImportedeEntregas
+FROM Entregan E, Proveedores P, IMPORTEPORPROVEEDOR I
+WHERE E.RFC = P.RFC AND I.Proveedor=E.RFC
+GROUP BY P.RazonSocial, I.ImportedeEntregas
+
+RazonSocial, NumeroEntregas, ImportedeEntregas
+Alvin,15,794295.2064000000
+Comex,15,801930.5980000000
+Cecoferre,18,860441.9770000000
+
+Reporta 8 renglones
+
+Por cada material obtener la clave y descripción del material, la cantidad total entregada, la mínima cantidad entregada, la máxima cantidad entregada, el importe total de las entregas de aquellos materiales en los que la cantidad promedio entregada sea mayor a 400.
+
+CREATE VIEW PROMEDIOCANTIDADPORMATERIAL AS(
+SELECT Clave, AVG(Cantidad) AS PromedioCantidadEntregada
+FROM Entregan
+GROUP BY Clave)
+
+SELECT M.Clave, M.Descripcion, SUM(E.Cantidad) AS CantidadTotal, MIN(E.Cantidad) AS MinimaCantidad, MAX(E.Cantidad) AS MaxCantidad, P.PromedioCantidadEntregada
+FROM Entregan E, Materiales M, PROMEDIOCANTIDADPORMATERIAL P
+WHERE E.Clave=M.Clave AND P.Clave=M.Clave AND P.PromedioCantidadEntregada > 400
+GROUP BY M.Clave, M.Descripcion, P.PromedioCantidadEntregada
+
+Clave, Descripción, CantidadTotal, MinimaCantidad, MaxCantidad, PromedioCantidadEntregada
+1010,Varilla 4/32,1718.00,523.00,667.00,572.666666
+1040,Varilla 3/18,1349.00,263.00,546.00,449.666666
+1050,Varilla 4/34,1216.00,90.00,623.00,405.333333
+
+Reporta 15 renglones
+
+Para cada proveedor, indicar su razón social y mostrar la cantidad promedio de cada material entregado, detallando la clave y descripción del material, excluyendo aquellos proveedores para los que la cantidad promedio sea menor a 500.
+
+SELECT P.RazonSocial, E.Clave, M.Descripcion, AVG(E.Cantidad) AS CantidadPromedio
+FROM Entregan E, Proveedores P, Materiales M
+WHERE E.RFC = P.RFC AND M.Clave=E.Clave
+GROUP BY P.RazonSocial, E.Clave, M.Descripcion
+HAVING AVG(E.Cantidad) > 500
+
+RazonSocial, Clave, Descripción, CantidadPromedio
+Oviedo,1010,Varilla 4/32,572.666666
+La Ferre,1100,Block,562.666666
+Oviedo,1410,Pintura B1021,509.666666
+
+Reporta 3 renglones
+
+Mostrar en una solo consulta los mismos datos que en la consulta anterior pero para dos grupos de proveedores: aquellos para los que la cantidad promedio entregada es menor a 370 y aquellos para los que la cantidad promedio entregada sea mayor a 450.
+
+SELECT P.RazonSocial, E.Clave, M.Descripcion, AVG(E.Cantidad) AS CantidadPromedio
+FROM Entregan E, Proveedores P, Materiales M
+WHERE E.RFC = P.RFC AND M.Clave=E.Clave
+GROUP BY P.RazonSocial, E.Clave, M.Descripcion
+HAVING AVG(E.Cantidad) < 370 OR AVG(E.Cantidad) > 450
+
+RazonSocial, Clave, Descripción, CantidadPromedio
+La fragua,1000,Varilla 3/16,142.000000
+Comex,1210,Recubrimiento P1028,197.333333
+Cecoferre,1030,Varilla 4/33,212.000000
+
+Reporta 34 renglones
+
+----------------------------------------------------
+
+Inserta cinco nuevos materiales.
+
+INSERT INTO Materiales VALUES (1500, 'Mármol', 500, 2*1500/1000)
+INSERT INTO Materiales VALUES (1510, 'Madera Roble', 300, 2*1510/1000)
+INSERT INTO Materiales VALUES (1520, 'Madera Abedul', 420, 2*1520/1000)
+INSERT INTO Materiales VALUES (1530, 'Madera Pino', 230, 2*1530/1000)
+INSERT INTO Materiales VALUES (1540, 'Madera Encino', 450, 2*1540/1000)
+
+-----------------------------------------------------
+
+Clave y descripción de los materiales que nunca han sido entregados.
+
+SELECT Clave, Descripcion
+FROM Materiales
+WHERE Clave NOT IN (
+    SELECT DISTINCT Clave
+    FROM Entregan
+    )
+
+Clave, Descripción
+1500,Mármol
+1510,Madera Roble
+1520,Madera Abedul
+1530,Madera Pino
+1540,Madera Encino
+
+Reporta 5 renglones
+
+Razón social de los proveedores que han realizado entregas tanto al proyecto 'Vamos México' como al proyecto 'Querétaro Limpio'.
+
+SELECT RazonSocial
+FROM Proveedores
+WHERE RFC IN (
+    SELECT DISTINCT E.RFC
+    FROM Entregan E, Proyectos P
+    WHERE E.Numero=P.Numero AND P.Denominacion LIKE 'Vamos Mexico'
+    ) AND RFC IN(
+    SELECT DISTINCT E.RFC
+    FROM Entregan E, Proyectos P
+    WHERE E.Numero=P.Numero AND P.Denominacion LIKE 'Queretaro limpio'
+    )
+
+RazonSocial
+La fragua
+
+Reporta 1 renglón
+
+Descripción de los materiales que nunca han sido entregados al proyecto 'CIT Yucatán'.
+
+SELECT Descripcion
+FROM Materiales M
+WHERE M.Clave NOT IN (
+    SELECT distinct E.Clave
+    FROM Entregan E, Proyectos P
+    WHERE P.Numero=E.Numero AND P.Denominacion LIKE 'CIT Yucatan'
+    )
+
+Descripcion
+Varilla 3/16
+Varilla 4/32
+Varilla 3/17
+
+Reporta 45 renglones
+
+Razón social y promedio de cantidad entregada de los proveedores cuyo promedio de cantidad entregada es mayor al promedio de la cantidad entregada por el proveedor con el RFC 'VAGO780901'.
+
+SELECT P.RazonSocial, AVG(E.Cantidad) AS PromedioCantidad
+FROM Entregan E, Proveedores P
+WHERE E.RFC=P.RFC
+GROUP BY P.RazonSocial
+HAVING AVG(E.Cantidad)> (
+    SELECT AVG(Cantidad) AS PromedioCantidadReferencia
+    FROM Entregan
+    WHERE RFC LIKE 'VAGO780901'
+    )
+
+RazonSocial PromedioCantidad
+
+Reporta 0 renglones porque no existe el proveedor con tal RFC.
+
+RFC, razón social de los proveedores que participaron en el proyecto 'Infonavit Durango' y cuyas cantidades totales entregadas en el 2000 fueron mayores a las cantidades totales entregadas en el 2001.
+
+CREATE VIEW CANTIDADESTOTALPROV2000 AS (
+SELECT RFC, SUM(Cantidad) AS CantidadEntregadaTotal
+FROM Entregan
+WHERE Fecha BETWEEN '2000-01-01' AND '2000-31-12'
+GROUP BY RFC)
+
+CREATE VIEW CANTIDADESTOTALPROV2001 AS (
+SELECT RFC, SUM(Cantidad) AS CantidadEntregadaTotal
+FROM Entregan
+WHERE Fecha BETWEEN '2001-01-01' AND '2001-31-12'
+GROUP BY RFC)
+
+SELECT DISTINCT E.RFC, Pro.RazonSocial
+FROM Entregan E, Proyectos P, CANTIDADESTOTALPROV2000 C00, CANTIDADESTOTALPROV2001 C01, Proveedores Pro
+WHERE E.Numero=P.Numero AND Pro.RFC=E.RFC AND C00.RFC=E.RFC AND C01.RFC=E.RFC AND C00.CantidadEntregadaTotal>C01.CantidadEntregadaTotal AND P.Denominacion LIKE 'Infonavit Durango'
+
+RFC, RazonSocial
+BBBB800101   ,Oviedo
+FFFF800101   ,Comex
+
+Reporta 2 renglones
+
+
+
