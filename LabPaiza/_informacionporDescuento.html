@@ -1,0 +1,5 @@
+<h6 class="center-align">A continuación se despliega la información de los álbumes con precio menor o igual a $150</h6>
+<?php 
+$result = getCheapAlbumes(150);
+$informacion = despliegaInfo($result); ?>
+<div class="container"><?= $informacion ?></div>
