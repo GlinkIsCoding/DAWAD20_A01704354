@@ -46,6 +46,24 @@ function insertarAlbum($nombre, $artista, $unidades, $precio, $idioma){
     closeDb($conn);
 }
 
+function insertarIncidente($lugarid, $tipoid){
+    $conn = connectDb();
+    $sql = "INSERT INTO `incidentepark` (`horafecha`, `idlugar`, `idtipo`) VALUES (current_timestamp(), '".$lugarid."', '".$tipoid."');";
+    
+    if(mysqli_query($conn, $sql)){
+        echo "New record created successfully";
+        closeDb($conn);
+        unset($_POST);
+        return true;
+    }else{
+        echo "Error: ". $sql."<br>".mysqli_error($conn);
+        closeDb($conn);
+        unset($_POST);
+        return false;
+    }
+    closeDb($conn);
+}
+
 
 function delete_id($id){
     $conn = connectDb();
@@ -82,7 +100,7 @@ function getCheapAlbumes($cheapprice){
 
 function select($name, $tabla, $id='id', $nombre = 'nombre'){
     $resultado = '<select id="'.$name.'"  name="'.$name.'" class="browser-default">';
-    $resultado .= '<option value="" disabled selected>Selecciona un '.$tabla.'</option>';
+    $resultado .= '<option value="" disabled selected>Selecciona un '.$name.'</option>';
     $conn = connectDb();
     
     $sql = 'SELECT '.$id.', '.$nombre.' FROM '.$tabla.' ORDER BY '.$nombre.' ASC';
@@ -95,10 +113,21 @@ function select($name, $tabla, $id='id', $nombre = 'nombre'){
     
     mysqli_free_result($result); //Liberar la memoria
     
-    $resultado .= '</select><label>'.$tabla.'</label>';
+    $resultado .= '</select><label>'.$name.'</label>';
     
     closeDb($conn);
     return $resultado;
+}
+
+function get($tabla, $horafecha= 'horafecha'){
+    $conn = connectDb();
+    $sql = "SELECT I.".$horafecha.", L.nombre AS nombrelugar, T.nombre AS nombretipo
+    FROM ". $tabla." I, lugarpark L, tipopark T
+    WHERE I.idlugar = L.id AND T.id = I.idtipo
+    ORDER BY ".$horafecha." DESC";
+    $result = mysqli_query($conn,$sql);
+    closeDb($conn);
+    return $result;
 }
 
 

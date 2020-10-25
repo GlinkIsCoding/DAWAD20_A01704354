@@ -25,20 +25,31 @@ function clear_entries(){
 
 function despliegaInfo($result){
     $tabla = "<table>";
+    $tabla .= "<thead><tr><th>Fecha</th><th>Lugar del Incidente</th><th>Tipo de Incidente</th></tr></thead>";
     if(mysqli_num_rows($result) > 0){
     while($row = mysqli_fetch_assoc($result)){
         $tabla .= "<tr>";
-        $tabla .= "<td>" . $row["id"] . "</td>";
-        $tabla .= "<td>" . $row["nombre"] . "</td>";
-        $tabla .= "<td>" . $row["artista"] . "</td>";
-        $tabla .= "<td>" . $row["unidades"] . "</td>";
-        $tabla .= "<td>" ."$". $row["precio"] . "</td>";
-        $tabla .= "<td>" . $row["idioma"] . "</td>";
+        $tabla .= "<td>" . $row["horafecha"] . "</td>";
+        $tabla .= "<td>" . $row["nombrelugar"] . "</td>";
+        $tabla .= "<td>" . $row["nombretipo"] . "</td>";
         $tabla .= "</tr>";
         }
     $tabla .= "</table>";
     return $tabla;
     }
+}
+
+function insertincidente(){
+    $lugarid = $_POST["lugarid"];
+    $tipoid = $_POST["tipoid"];
+    
+    if(is_numeric($lugarid) && is_numeric($tipoid)){
+        if(insertarIncidente($lugarid, $tipoid)){
+            }else{   
+        }
+        }else{
+        }
+    
 }
 
 function insert_album(){
