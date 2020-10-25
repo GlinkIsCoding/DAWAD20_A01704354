@@ -1,0 +1,21 @@
+<div class="container">
+    
+    <div class="row">
+    <form class="col s12" action="index.php" method="post">
+        <div class="row">
+        <label>Lugar del incidente </label>
+        <?= select("lugar","lugarpark") ?>
+        </div>
+        <div class="row">
+        <label>Tipo de incidente </label>
+        <?= select("tipo","tipopark") ?>
+        </div>
+        </form>
+        <div class="row">
+            <button class="btn waves-effect waves-orange deep-purple darken-4" id="registrar">Registrar
+            <i class="material-icons right">send</i>
+            </button>
+        </div>
+  </div>
+</div>
+        
