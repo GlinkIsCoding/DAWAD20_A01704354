@@ -52,6 +52,7 @@ function insertincidente(){
     
 }
 
+
 function insert_album(){
     $nombre = $_POST["nombre"];
     $artista = $_POST["artista"];
@@ -81,6 +82,15 @@ function remove_album(){
     }
 }
 
+function remove_incidente(){
+    $horafecha = $_POST["horafecha"];
+    if(removeIncidente($horafecha)){
+        echo "El registro ya no está en la base de datos";
+    }else{
+        
+    }
+}
+
 
 
 function update_album(){
@@ -95,6 +105,29 @@ function update_album(){
                 
             }
         }
+    }
+}
+
+function update_lugar(){
+    $id = $_POST["lugar"];
+    $nuevonombre = $_POST["nuevonombre"];
+            if(update_idlugar($id, $nuevonombre)){
+                echo "Record updated successfully";
+            }else{
+            }
+}
+
+function despliegaInfoLugares($result){
+    $tabla = "<table>";
+    $tabla .= "<thead><tr><th>Nombre de la ubicación</th></tr></thead>";
+    if(mysqli_num_rows($result) > 0){
+    while($row = mysqli_fetch_assoc($result)){
+        $tabla .= "<tr>";
+        $tabla .= "<td>" . $row["nombre"] . "</td>";
+        $tabla .= "</tr>";
+        }
+    $tabla .= "</table>";
+    return $tabla;
     }
 }
 

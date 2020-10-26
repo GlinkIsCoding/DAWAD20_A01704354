@@ -3,14 +3,12 @@
     <div class="row">
     <form class="col s12" action="remove.php" method="post">
       <div class="row">
-        <div class="input-field col s6">
-          <input id="id" type="number" class="validate" name="id" min="1">
-          <label for="id">ID</label>
+        <label>Fecha del incidente </label>
+        <?= selectincidente("horafecha", "incidentepark") ?>
         </div>
-      </div>
     </form>
         <div class="row">
-            <button id="eliminarbutton" class="btn waves-effect waves-orange deep-purple darken-4">Eliminar
+            <button id="eliminarbutton" class="btn waves-effect waves-orange red darken-4">Eliminar
             <i class="material-icons right">send</i>
             </button>
         </div>

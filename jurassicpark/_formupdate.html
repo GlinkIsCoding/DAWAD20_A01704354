@@ -3,21 +3,13 @@
     <div class="row">
     <form class="col s12" action="update.php" method="post">
         <div class="row">
-        <div class="input-field col s6">
-          <input id="id" type="number" class="validate" min="1" name="id">
-          <label for="id">ID</label>
+        <label>Lugar en el parque</label>
+        <?= select("lugar","lugarpark") ?>
         </div>
-        <div class="input-field col s6">
-          <input id="unidades" type="number" class="validate" min="1" max="500" name="unidades">
-          <label for="unidades">Nuevas unidades</label>
-        </div>
-      </div>
       <div class="row">
-        <div class="input-field col s6">
-          <input id="precio" type="text" class="validate" name="precio">
-          <label for="precio">Nuevo precio</label>
-        </div>
-        <div class="input-field col s6">
+        <div class="input-field col s12">
+          <input id="nuevonombre" type="text" class="validate" name="nuevonombre">
+          <label for="nuevonombre">Nuevo nombre</label>
         </div>
       </div>
     </form>

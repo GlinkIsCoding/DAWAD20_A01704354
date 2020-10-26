@@ -2,11 +2,11 @@
 require_once("util.php");
 require_once("model.php");
 clear_entries();
-$result = getAlbumes();
-if(isset($_POST["id"])&&isset($_POST["precio"])&&isset($_POST["unidades"])){
-    update_album();
-    $result = getAlbumes();
+$result = getLugares();
+if(isset($_POST["lugar"])&&isset($_POST["nuevonombre"])){
+    update_lugar();
+    $result = getLugares();
 }
-include("_informacionTotal.html");
+include("_informacionLugares.html");
 
 ?>

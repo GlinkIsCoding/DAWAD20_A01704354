@@ -119,12 +119,55 @@ function select($name, $tabla, $id='id', $nombre = 'nombre'){
     return $resultado;
 }
 
-function get($tabla, $horafecha= 'horafecha'){
+function selectincidente($name, $tabla, $horafecha='horafecha'){
+    $resultado = '<select id="'.$name.'"  name="'.$name.'" class="browser-default">';
+    $resultado .= '<option value="" disabled selected>Selecciona un '.$name.'</option>';
     $conn = connectDb();
-    $sql = "SELECT I.".$horafecha.", L.nombre AS nombrelugar, T.nombre AS nombretipo
-    FROM ". $tabla." I, lugarpark L, tipopark T
-    WHERE I.idlugar = L.id AND T.id = I.idtipo
-    ORDER BY ".$horafecha." DESC";
+    
+    $sql = 'SELECT '.$horafecha.' FROM '.$tabla.' ORDER BY '.$horafecha.' DESC';
+    $result = mysqli_query($conn,$sql);
+    
+    while ($row = mysqli_fetch_array($result, MYSQLI_BOTH)) {
+        
+        $resultado .= '<option value="'.$row[$horafecha].'">'.$row[$horafecha].'</option>';
+    }
+    
+    mysqli_free_result($result); //Liberar la memoria
+    
+    $resultado .= '</select><label>'.$name.'</label>';
+    
+    closeDb($conn);
+    return $resultado;
+}
+
+
+function getIncidentesRecientes(){
+    $conn = connectDb();
+    $sql = "CALL GetIncidentesRecientes()";
+    $result = mysqli_query($conn,$sql);
+    closeDb($conn);
+    return $result;
+}
+
+function removeIncidente($horafecha){
+    $conn = connectDb();
+    $sql = "CALL RemoveIncidente('".$horafecha."')";
+    $result = mysqli_query($conn,$sql);
+    closeDb($conn);
+    return $result;
+}
+
+function getLugares(){
+    $conn = connectDb();
+    $sql = "CALL GetLugares()";
+    $result = mysqli_query($conn,$sql);
+    closeDb($conn);
+    return $result;
+}
+
+function update_idlugar($id, $nuevonombre){
+    $conn = connectDb();
+    $sql = "CALL UpdateLugares(".$id.", '".$nuevonombre."')";
     $result = mysqli_query($conn,$sql);
     closeDb($conn);
     return $result;
