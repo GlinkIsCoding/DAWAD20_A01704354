@@ -1,17 +1,17 @@
 <?php
 
 function clear_entries(){
-    if(isset($_POST["id"])){
-        $_POST["id"] = htmlspecialchars($_POST["id"]);
+    if(isset($_POST["nuevozombie"])){
+        $_POST["nuevozombie"] = htmlspecialchars($_POST["nuevozombie"]);
     }
-    if(isset($_POST["nombre"])){
-        $_POST["nombre"] = htmlspecialchars($_POST["nombre"]);
+    if(isset($_POST["zombieid"])){
+        $_POST["zombieid"] = htmlspecialchars($_POST["zombieid"]);
     }
-    if(isset($_POST["artista"])){
-        $_POST["artista"] = htmlspecialchars($_POST["artista"]);
+    if(isset($_POST["estadoid"])){
+        $_POST["estadoid"] = htmlspecialchars($_POST["estadoid"]);
     }
-    if(isset($_POST["unidades"])){
-        $_POST["unidades"] = htmlspecialchars($_POST["unidades"]);
+    if(isset($_POST["idestado"])){
+        $_POST["idestado"] = htmlspecialchars($_POST["idestado"]);
     }
     if(isset($_POST["precio"])){
         $_POST["precio"] = htmlspecialchars($_POST["precio"]);
